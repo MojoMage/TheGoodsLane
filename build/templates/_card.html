@@ -1,5 +1,5 @@
 {% macro card(l, p, eager) %}<article class="card"><a href="{{ p }}/item/{{ l.slug }}/">
 <div class="ph">{% if l.images %}<img src="{{ l.images[0].thumb }}" srcset="{{ l.images[0].thumb }} 480w, {{ l.images[0].thumb2x }} 800w" sizes="(min-width:960px) 250px, (min-width:640px) 30vw, 45vw" alt="{{ l.title }}" width="480" height="600"{% if eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">{% endif %}{% if l.status == 'pending' %}<span class="flag">Sale pending</span>{% endif %}</div>
 <h3>{{ l.title }}</h3>
-<p class="money"><span class="price">{{ l.price_text }}</span>{% if l.previous_price %}<span class="was">was <s>{{ l.previous_price_text }}</s></span>{% elif l.msrp %}<span class="was">retail <s>{{ l.msrp_text }}</s></span>{% endif %}</p>
+<p class="money"><span class="price">{{ l.price_text }}</span>{% if l.discount_pct %}<s class="was" aria-label="Retail price {{ l.msrp_text }}">{{ l.msrp_text }}</s><span class="off">{{ l.discount_pct }}% off</span>{% elif l.previous_price %}<span class="was">was <s>{{ l.previous_price_text }}</s></span>{% endif %}</p>
 </a></article>{% endmacro %}

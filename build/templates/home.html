@@ -7,11 +7,7 @@
   <p>{{ listings|length }} new and open-box {{ 'item' if listings|length == 1 else 'items' }} in stock today, at liquidation prices. Pickup in {{ site.city }}, delivery available.</p>
   {% else %}
   <h1>New and open-box goods for the home, well below retail.</h1>
-  <p>Liquidation deals from {{ site.name }} in {{ site.city }}, typically {{ site.discount_range }} below retail. {{ listings|length }} {{ 'item' if listings|length == 1 else 'items' }} in stock today.</p>
-  <ul class="notes">
-    <li>Pickup near Square One</li>
-    <li>Delivery available</li>
-  </ul>
+  <p>Liquidation stock from {{ site.name }} in {{ site.city }}, {% if savings %}up to {{ savings.high }}% below retail{% else %}typically {{ site.discount_range }} below retail{% endif %}. {{ listings|length }} {{ 'item' if listings|length == 1 else 'items' }} in stock today. Pickup near Square One, delivery available.</p>
   {% endif %}
 </section>
 
@@ -40,7 +36,8 @@
     <h3>Everything has sold for now</h3>
     <p>New items arrive most days. Message {{ site.owner_first_name }} to ask what's coming next.</p>
     <div class="actions">
-      <a class="btn btn-primary" href="{{ site.messenger_url }}" target="_blank" rel="noopener" data-contact="messenger" data-whatsapp="{{ wa_general }}" data-message="{{ msg_general }}">{% include "_icon_messenger.svg" %}Message {{ site.owner_first_name }} on Messenger</a>
+      <a class="btn chan-m" href="{{ site.messenger_url }}" target="_blank" rel="noopener">{% include "_icon_messenger.svg" %}Message on Messenger</a>
+      <a class="btn chan-w" href="{{ wa_general }}" target="_blank" rel="noopener">{% include "_icon_whatsapp.svg" %}Message on WhatsApp</a>
     </div>
   </div>
   {% endif %}
@@ -51,7 +48,7 @@
   <h2 id="how">How buying works</h2>
   <ol class="steps">
     <li><strong>Choose an item</strong><span>Everything shown is in stock in {{ site.city }}, with {{ site.owner_first_name }}'s own photos and asking price.</span></li>
-    <li><strong>Message {{ site.owner_first_name }}</strong><span>Use the Messenger button on the item. If Messenger won't open, WhatsApp or text {{ site.phone_display }}.</span></li>
+    <li><strong>Message {{ site.owner_first_name }}</strong><span>Use the Messenger or WhatsApp button on the item, whichever you prefer. You can also text {{ site.phone_display }}.</span></li>
     <li><strong>Pick up or have it delivered</strong><span>Pickup is around {{ site.pickup_area }}. Delivery across the GTA is available at a reasonable charge.</span></li>
   </ol>
 </section>

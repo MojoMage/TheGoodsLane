@@ -44,7 +44,7 @@ def test_fonts_and_photos_load(page, served):
 
 def test_tap_targets_are_thumb_sized(page, served):
     page.goto(served["base"] + served["item"])
-    for box in page.eval_on_selector_all(".bar .btn, header .pill", "els => els.map(e => e.getBoundingClientRect().toJSON())"):
+    for box in page.eval_on_selector_all(".bar .btn, header .chan", "els => els.map(e => e.getBoundingClientRect().toJSON())"):
         assert box["height"] >= 40 and box["width"] >= 44
 
 
@@ -54,21 +54,25 @@ def test_home_card_opens_the_item_page(page, served):
     assert "/item/" in page.url and page.locator("h1").inner_text()
 
 
-def test_messenger_tap_opens_chat_then_offers_whatsapp(page, served):
+def test_both_message_buttons_sit_side_by_side_and_open_their_chats(page, served):
     page.context.route("https://m.me/**", lambda r: r.fulfill(body="ok"))
+    page.context.route("https://wa.me/**", lambda r: r.fulfill(body="ok"))
     page.goto(served["base"] + served["item"])
-    assert not page.locator("#contact-sheet").is_visible()
-    with page.context.expect_page() as popup:
-        page.locator(".bar a[data-contact=messenger]").click()
-    assert popup.value.url.startswith("https://m.me/61577549634421")
-    popup.value.close()
-    page.bring_to_front()
-    page.locator("#contact-sheet").wait_for(state="visible", timeout=8000)
-    wa = page.locator("#sheet-whatsapp").get_attribute("href")
-    assert wa.startswith("https://wa.me/16477706652?text=") and "Ecovacs%20N30%20Omni" in wa
-    assert page.locator("#sheet-messenger").get_attribute("href").startswith("https://m.me/61577549634421")
-    page.locator("#contact-sheet button").click()
-    assert not page.locator("#contact-sheet").is_visible()
+    for place in ("header .talk", ".bar"):
+        m, w = page.locator(f"{place} .chan-m"), page.locator(f"{place} .chan-w")
+        assert m.is_visible() and w.is_visible()
+        mb, wb = m.bounding_box(), w.bounding_box()
+        assert abs(mb["y"] - wb["y"]) < 1 and abs(mb["height"] - wb["height"]) < 1, f"{place}: same row, same height"
+        assert abs(mb["width"] - wb["width"]) < 24 and mb["x"] < wb["x"], f"{place}: equal weight, Messenger first"
+        assert m.locator("svg").is_visible() and w.locator("svg").is_visible()
+    for sel, start in ((".bar .chan-m", "https://m.me/61577549634421"), (".bar .chan-w", "https://wa.me/16477706652?text=")):
+        with page.context.expect_page() as popup:
+            page.locator(sel).click()
+        assert popup.value.url.startswith(start)
+        popup.value.close()
+        page.bring_to_front()
+    assert "Ecovacs%20N30%20Omni" in page.locator(".bar .chan-w").get_attribute("href")
+    assert page.locator("dialog").count() == 0 and page.locator("script:not([type])").count() == 0
 
 
 def test_page_works_without_javascript(browser, served):

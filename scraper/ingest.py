@@ -26,6 +26,7 @@ from pathlib import Path
 
 from PIL import Image
 
+from . import retail as retail_prices
 from .titles import clean_title
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -145,7 +146,8 @@ def decode_photos(item: dict) -> list[tuple[bytes, int, int]]:
     return out
 
 
-def normalize(item: dict, override: dict, old: dict, now: datetime, photos: list[tuple[bytes, int, int]]) -> dict:
+def normalize(item: dict, override: dict, old: dict, now: datetime, photos: list[tuple[bytes, int, int]],
+              retail: dict | None = None) -> dict:
     listing_id = str(item.get("id") or "").strip()
     if not listing_id.isdigit():
         raise ValueError(f"listing has no numeric id: {str(item)[:80]}")
@@ -159,7 +161,9 @@ def normalize(item: dict, override: dict, old: dict, now: datetime, photos: list
         raise PullRejected(f"description of listing {listing_id} is damaged (checksum mismatch)")
     price = to_amount(item.get("price"))
     previous = to_amount(item.get("previous_price"))
-    msrp = to_amount(override.get("msrp")) or detect_msrp(description, price)
+    manual = to_amount(override.get("msrp"))
+    entry = None if manual else retail_prices.lookup(retail or {}, listing_id, price)
+    msrp = manual or (entry["retail_price"] if entry else None) or detect_msrp(description, price)
     if override.get("category"):
         slug = slugify(override["category"])
         cat = (slug, next((n for s, n, _ in CATEGORIES if s == slug), override["category"]))
@@ -178,6 +182,7 @@ def normalize(item: dict, override: dict, old: dict, now: datetime, photos: list
         "previous_price": previous if previous and price is not None and previous > price else None,
         "msrp": msrp,
         "discount_pct": pct_off(price, msrp),
+        **retail_prices.fields(entry),
         "condition": " ".join(str(item.get("condition") or "").split()),
         "location": " ".join(str(item.get("location") or "").split()),
         "brand": override.get("brand") or detect_brand(title),
@@ -215,7 +220,7 @@ def validate(listings: list[dict], previous: list[dict], pull: dict, expected_se
 
 
 def ingest(pull: dict, previous: dict | None = None, overrides: dict | None = None, now: datetime | None = None,
-           force: bool = False, expected_seller: str | None = None) -> tuple[dict, dict[str, list[bytes]]]:
+           force: bool = False, expected_seller: str | None = None, retail: dict | None = None) -> tuple[dict, dict[str, list[bytes]]]:
     """Pure function: pull + previous snapshot -> (new snapshot, photo bytes by listing id)."""
     now = now or datetime.now(timezone.utc)
     previous, overrides = previous or {}, overrides or {}
@@ -225,7 +230,7 @@ def ingest(pull: dict, previous: dict | None = None, overrides: dict | None = No
         try:
             photos = decode_photos(item)
             listing = normalize(item, overrides.get(str(item.get("id")), {}), old_by_id.get(str(item.get("id")), {}),
-                                now, photos)
+                                now, photos, retail)
         except ValueError as exc:
             skipped.append(str(exc))
             continue
@@ -274,7 +279,7 @@ def main(argv=None) -> int:
     try:
         pull = json.loads(Path(args.pull).read_text(encoding="utf-8"))
         snapshot, photos = ingest(pull, previous, load_json(data_dir / "overrides.json", {}), force=args.force,
-                                  expected_seller=config.get("facebook_profile_id"))
+                                  expected_seller=config.get("facebook_profile_id"), retail=retail_prices.load())
     except (PullRejected, json.JSONDecodeError, KeyError) as exc:
         print(f"REJECTED: {exc}\nKept the existing data unchanged.", file=sys.stderr)
         return 2

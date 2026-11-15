@@ -36,7 +36,8 @@ gh-pages branch -> GitHub Pages            (plain static HTML)
 | I want to... | Do this |
 |---|---|
 | Update now | Follow `docs/DAILY_RUN.md` |
-| Set a retail price to show "% off" | `"<listing id>": {"msrp": 899.99}` in `data/overrides.json` |
+| Set or correct a retail price ("% off" badge) | Edit the listing's entry in `data/retail_prices.json`, then `python3 -m scraper.retail apply` |
+| See which listings have no retail price yet | `python3 -m scraper.retail missing` |
 | Hide a listing | `"<listing id>": {"hidden": true}` in `data/overrides.json` |
 | Fix a title, category or brand | `"<listing id>": {"title": "...", "category": "kitchen", "brand": "Ninja"}` |
 | Accept a big drop in stock | `python3 -m scraper.ingest <file> --force` |
@@ -53,8 +54,8 @@ gh-pages branch -> GitHub Pages            (plain static HTML)
 - `test_ingest.py`: categories, brands, prices, and every "refuse a broken pull" rule
 - `test_titles.py`: title cleaning, using the real listing titles
 - `test_build.py`: every listing published, structured data matches, sitemap, robots, llms.txt
-- `test_site_browser.py`: phone layout, fonts and photos load, Messenger then WhatsApp failsafe
-- `test_published_data.py`: the committed inventory and photo files are consistent
+- `test_site_browser.py`: phone layout, fonts and photos load, Messenger and WhatsApp buttons side by side
+- `test_published_data.py`: the committed inventory and photo files are consistent, and every "% off" has a named source
 
 ## Search and AI visibility
 

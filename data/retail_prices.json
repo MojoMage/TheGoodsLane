@@ -1,0 +1,149 @@
+{
+  "_about": "Brand-new retail price per listing, in CAD, from a Canadian retailer or the manufacturer's Canadian price. Keyed by Facebook listing id. basis: 'regular' = the retailer's regular (non-sale) price; 'launch' = the manufacturer's suggested retail price at launch for a model no longer sold new. Entries with status 'not_found' are listings where no Canadian price could be confirmed for the exact model.",
+  "1647194386782124": {
+    "retail_price": 999.99,
+    "product": "De'Longhi Magnifica Evo with LatteCrema, ECAM29084SB",
+    "source": "Canadian Tire",
+    "url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
+    "basis": "regular",
+    "checked": "2026-11-15"
+  },
+  "29604762245854972": {
+    "retail_price": 999.99,
+    "product": "De'Longhi Magnifica Evo with LatteCrema, ECAM29084SB",
+    "source": "Canadian Tire",
+    "url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
+    "basis": "regular",
+    "checked": "2026-11-15"
+  },
+  "1503712531593162": {
+    "retail_price": 999.99,
+    "product": "De'Longhi Magnifica Evo with LatteCrema, ECAM29084SB",
+    "source": "Canadian Tire",
+    "url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
+    "basis": "regular",
+    "checked": "2026-11-15"
+  },
+  "2212135199712429": {
+    "retail_price": 849.99,
+    "product": "De'Longhi Magnifica Start with LatteCrema, ECAM22080B",
+    "source": "Consiglio's Kitchenware",
+    "url": "https://consiglioskitchenware.com/products/delonghi-magnifica-start-lattecrema-espresso-machine-ecam22080b",
+    "basis": "regular",
+    "checked": "2026-11-15"
+  },
+  "1640103387606427": {
+    "retail_price": 749.99,
+    "product": "Ecovacs Deebot N30 Pro Omni",
+    "source": "Ecovacs Canada",
+    "url": "https://www.ecovacs.com/ca/shop/deebot-robotic-vacuum-cleaner?page=4",
+    "basis": "regular",
+    "checked": "2026-11-15",
+    "note": "C$749.99 shown for the white N30 Pro Omni (sold out) in the search-index copy of the store page; the live page no longer shows a price."
+  },
+  "1602651931072047": {
+    "retail_price": 159.99,
+    "product": "Hoover CleanSlate Pet Plus, FH14042VCD",
+    "source": "Canadian Tire",
+    "url": "https://www.canadiantire.ca/en/pdp/hoover-cleanslate-pet-plus-carpet-upholstery-corded-portable-spot-deep-cleaner-0437155p.html",
+    "basis": "regular",
+    "checked": "2026-11-15"
+  },
+  "2392643971271890": {
+    "retail_price": 1999.99,
+    "product": "Ecovacs Deebot X2 Omni",
+    "source": "Ecovacs Canada suggested retail price at launch, 2023",
+    "url": "https://newswire.ca/news-releases/ecovacs-debuts-newly-designed-deebot-x2-omni-to-clean-every-square-inch-of-your-floors-813388991.html",
+    "basis": "launch",
+    "checked": "2026-11-15"
+  },
+  "1752504019803373": {
+    "retail_price": 1999.99,
+    "product": "Ecovacs Deebot X2 Omni",
+    "source": "Ecovacs Canada suggested retail price at launch, 2023",
+    "url": "https://newswire.ca/news-releases/ecovacs-debuts-newly-designed-deebot-x2-omni-to-clean-every-square-inch-of-your-floors-813388991.html",
+    "basis": "launch",
+    "checked": "2026-11-15"
+  },
+  "1814777619671191": {
+    "retail_price": 1799.99,
+    "product": "Ecovacs Deebot T20 Omni (also sold as TEO Omni)",
+    "source": "Best Buy Canada price at launch, 2023",
+    "url": "https://www.bestbuy.ca/en-ca/product/ecovacs-deebot-t20-omni-robot-vacuum-mop-white/17146800",
+    "basis": "launch",
+    "checked": "2026-11-15",
+    "note": "Launched in Canada June 2023 at $1,799 CDN; Best Buy Canada listed it at $1,799.99."
+  },
+  "1669557128017676": {
+    "retail_price": 209.0,
+    "product": "Litheli U20 Brushless Leaf Blower with 2 batteries, U20BR00-0A220",
+    "source": "RONA",
+    "url": "https://rona.ca/en/product/litheli-u20-brushless-leaf-blower-u20br00-0a220-332042542",
+    "basis": "regular",
+    "checked": "2026-11-15"
+  },
+  "1906899391029783": {
+    "status": "not_found",
+    "note": "Deebot T30S: only a US price (US$999.99) found, no Canadian price",
+    "checked": "2026-11-15"
+  },
+  "984841858011538": {
+    "retail_price": 499.99,
+    "product": "Ecovacs Deebot N30 Omni",
+    "source": "Ecovacs Canada",
+    "url": "https://www.ecovacs.com/ca/shop/deebot-robotic-vacuum-cleaner",
+    "basis": "regular",
+    "checked": "2026-11-15",
+    "note": "Regular price shown beside a C$313.49 sale price in the search-index copy of the store page; the model no longer shows a price on the live page."
+  },
+  "1743035326813240": {
+    "status": "not_found",
+    "note": "Deebot T10+: only a US price (US$949.99) found, no Canadian price",
+    "checked": "2026-11-15"
+  },
+  "1441593824094441": {
+    "status": "not_found",
+    "note": "Ninja Deluxe Kitchen System (Costco model CCO905KSSL): Costco.ca does not show its price; US Costco price is US$169.99",
+    "checked": "2026-11-15"
+  },
+  "1849095959415056": {
+    "status": "not_found",
+    "note": "CitiZ Platinum by De'Longhi (EN220M, the 'D' model): Costco.ca and Best Buy Canada show no price; the Breville-made 'C' model is $319 at Nespresso Canada, not used because it is not the same model",
+    "checked": "2026-11-15"
+  },
+  "1792027652123038": {
+    "status": "not_found",
+    "note": "Cosco Finale 2-in-1: only a US Walmart price (US$49.97) found",
+    "checked": "2026-11-15"
+  },
+  "993072010507922": {
+    "status": "not_found",
+    "note": "Compost Genie 14L: only US prices found",
+    "checked": "2026-11-15"
+  },
+  "1636915607777200": {
+    "status": "not_found",
+    "note": "Emma Hybrid 22 Lite King: no retailer listing found for this model",
+    "checked": "2026-11-15"
+  },
+  "1125124120200319": {
+    "status": "not_found",
+    "note": "Emma Hybrid Comfort Twin XL: review sites quote $1,174 and $1,724, they disagree and Emma's list prices are permanently discounted, so not used",
+    "checked": "2026-11-15"
+  },
+  "1476828964578681": {
+    "status": "not_found",
+    "note": "De'Longhi ceramic tower heater: listing gives no model number",
+    "checked": "2026-11-15"
+  },
+  "1892103009078665": {
+    "status": "not_found",
+    "note": "Hoover cordless stick vacuum: listing gives no model number",
+    "checked": "2026-11-15"
+  },
+  "1093337840118530": {
+    "status": "not_found",
+    "note": "Steelite DG010-1 leaf blower: not searched to a result",
+    "checked": "2026-11-15"
+  }
+}

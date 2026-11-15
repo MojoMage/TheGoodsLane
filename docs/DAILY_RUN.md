@@ -45,22 +45,38 @@ download location is set to it), and push access to `MojoMage/TheGoodsLane`.
 6. **Ingest.** `python3 -m scraper.ingest <staged file>`. Exit code 2 means the pull was
    rejected: stop, report the reason, publish nothing.
 
-7. **Test and note the changes.** `python3 -m pytest -q` must pass. Then run
+7. **Retail prices for new listings.** Every listing shows the brand-new retail price struck
+   out and a "% off" badge; this is the point of the site. Run `python3 -m scraper.retail missing`.
+   For each listing it names (new ones, and ones not found more than 30 days ago), search the
+   web for what the exact model costs brand new in Canada and add an entry to
+   `data/retail_prices.json` keyed by the listing id:
+   `{"retail_price": 999.99, "product": "<brand, model, model number>", "source": "Canadian Tire", "url": "https://...", "basis": "regular", "checked": "<today>"}`.
+   Rules: Canadian dollars only, from a Canadian retailer or the manufacturer's Canadian
+   site or Canadian press release; never a US price, never a converted price, never an
+   estimate. Use the regular (non-sale, "was") price; for a model no longer sold new, the
+   Canadian launch price with `"basis": "launch"`. Match the exact model: check the listing
+   photos when the text is vague (the box usually names it). Only record a link that came
+   back from a search or fetch. If nothing qualifies after a couple of searches, record
+   `{"status": "not_found", "note": "<why>", "checked": "<today>"}` and move on: that listing
+   shows its price with no badge. Spend at most a few minutes on this step. Then run
+   `python3 -m scraper.retail apply`.
+
+8. **Test and note the changes.** `python3 -m pytest -q` must pass. Then run
    `python3 -m scraper.changes` and keep its output for the report.
 
-8. **Commit the data.** `git add data && git commit -m "Inventory update <date>"`, push `main`.
+9. **Commit the data.** `git add data && git commit -m "Inventory update <date>"`, push `main`.
 
-9. **Publish.** `scripts/publish.sh` runs the tests, builds the site and pushes it to `gh-pages`.
+10. **Publish.** `scripts/publish.sh` runs the tests, builds the site and pushes it to `gh-pages`.
 
-10. **Check the publish.** GitHub Pages redeploys within a minute or two. Confirm with
+11. **Check the publish.** GitHub Pages redeploys within a minute or two. Confirm with
     `curl -s https://api.github.com/repos/MojoMage/TheGoodsLane/deployments?per_page=1`
     (newest deployment is for the commit just pushed) and its `statuses_url` (state
     `success`). If a browser or web fetch can open
     `https://mojomage.github.io/TheGoodsLane/inventory.json`, also check `count` and
     `updated_at` there.
 
-11. **Report** in a few lines: listings and photos pulled, what was added or sold since
-    yesterday, and anything that failed. Pull files accumulate in the Desktop folder
+12. **Report** in a few lines: listings and photos pulled, what was added or sold since
+    yesterday, retail prices added and which listings still have none, and anything that failed. Pull files accumulate in the Desktop folder
     (about 6 MB a day); mention it when there are more than about 30.
 
 ## When something fails

@@ -104,21 +104,27 @@ def test_item_page_keeps_the_sellers_description_whole(built):
     assert desc == fakefb.ITEMS[1]["description"].strip() and len(desc) > 3000
 
 
-def test_messenger_first_whatsapp_failsafe_on_every_item(built):
+def test_messenger_and_whatsapp_are_equal_options_on_every_item(built):
     for page in item_pages(built):
         doc = soup(page)
         title = doc.h1.get_text(strip=True)
-        messenger = doc.select('main a[data-contact="messenger"]')
-        assert len(messenger) == 2, "inline button + sticky phone bar"
-        for a in messenger:
-            assert a["href"] == "https://m.me/61577549634421"
-            wa = urlparse(a["data-whatsapp"])
+        for place, n in (("header .talk", 1), ("main .inline-actions", 1), ("main .bar", 1)):
+            box = doc.select_one(place)
+            messenger, whatsapp = box.select('a[href^="https://m.me/"]'), box.select('a[href^="https://wa.me/"]')
+            assert len(messenger) == n and len(whatsapp) == n, f"{place}: one button each"
+            m, w = messenger[0], whatsapp[0]
+            assert m["href"] == "https://m.me/61577549634421"
+            assert "Messenger" in m.get_text() and "WhatsApp" in w.get_text(), "both are labelled, not icon-only"
+            assert m.find("svg") and w.find("svg") and str(m.find("svg")) != str(w.find("svg")), "each has its own icon"
+            assert sorted(set(m["class"]) ^ set(w["class"])) == ["chan-m", "chan-w"], "same button, different tint"
+            wa = urlparse(w["href"])
             assert wa.netloc == "wa.me" and wa.path == "/16477706652"
-            text = parse_qs(wa.query)["text"][0]
-            assert title in text and BASE + "/item/" in text and a["data-message"] == text
-        assert doc.select_one('main a[href^="https://wa.me/16477706652"]'), "plain WhatsApp link works without JavaScript"
+            if place != "header .talk":
+                text = parse_qs(wa.query)["text"][0]
+                assert title in text and BASE + "/item/" in text
         assert doc.select_one('main a[href^="https://www.facebook.com/marketplace/item/"]')
-        assert doc.select_one("dialog#contact-sheet #sheet-whatsapp")
+        text = doc.get_text(" ").lower()
+        assert not doc.select("dialog") and "won't open" not in text and "failsafe" not in text and "backup" not in text
 
 
 def test_sold_and_hidden_items_are_not_published_and_pending_is_labelled(tmp_path, pull):
@@ -138,7 +144,8 @@ def test_empty_stock_still_builds_a_useful_page(tmp_path):
     (tmp_path / "data" / "listings.json").write_text(json.dumps({"updated_at": "2026-11-15T14:00:00+00:00", "listings": []}))
     site_build.build(tmp_path / "out", BASE, tmp_path / "data")
     doc = soup(tmp_path / "out" / "index.html")
-    assert "Everything has sold for now" in doc.get_text() and doc.select_one('main a[data-contact="messenger"]')
+    assert "Everything has sold for now" in doc.get_text()
+    assert doc.select_one('main a[href^="https://m.me/"]') and doc.select_one('main a[href^="https://wa.me/"]')
 
 
 def test_sitemap_lists_every_page_and_every_url_is_a_real_file(built):
@@ -197,5 +204,35 @@ def test_listing_text_cannot_inject_markup(tmp_path, pull):
     ingest.write(snap, photos, tmp_path / "data")
     site_build.build(tmp_path / "out", BASE, tmp_path / "data")
     doc = soup(next((tmp_path / "out" / "item").glob("kettle*/index.html")))
-    assert not doc.select("img[onerror]") and len(doc.find_all("script")) == 3  # 2 JSON-LD + site.js
+    assert not doc.select("img[onerror]") and len(doc.find_all("script")) == 2  # JSON-LD only, the site ships no JavaScript
     assert json.loads(doc.find("script", type="application/ld+json").string)["name"].startswith("Kettle <script>")
+
+
+def test_retail_price_is_struck_out_beside_our_price_with_the_percent_off(tmp_path, pull):
+    retail = {"984841858011538": {"retail_price": 499.99, "source": "Ecovacs Canada", "url": "https://www.ecovacs.com/ca/",
+                                  "basis": "regular", "checked": "2026-11-15"}}
+    snap, photos = ingest.ingest(pull, expected_seller=fakefb.SELLER_ID, retail=retail)
+    ingest.write(snap, photos, tmp_path / "data")
+    site_build.build(tmp_path / "out", BASE, tmp_path / "data")
+    home = soup(tmp_path / "out" / "index.html")
+    cards = {c.select_one("a")["href"].rstrip("/").rsplit("-", 1)[-1]: c for c in home.select("ul.grid article.card")}
+    money = cards["984841858011538"].select_one(".money")
+    assert money.select_one(".price").get_text(strip=True) == "$250"
+    assert money.select_one("s.was").get_text(strip=True) == "$499.99" and money.select_one(".off").get_text(strip=True) == "50% off"
+    assert sum(1 for c in cards.values() if c.select_one(".off")) == 1, "only the listing with a confirmed retail price gets a badge"
+    assert "up to" not in home.select_one(".intro p").get_text(), "one priced item is not enough for a headline claim"
+
+    doc = soup(next((tmp_path / "out" / "item").glob("*984841858011538/index.html")))
+    money = doc.select_one(".item .money")
+    assert [e.get_text(strip=True) for e in money.select(".price, s.was, .off")] == ["$250", "$499.99", "50% off"]
+    saving = doc.select_one(".saving")
+    assert "You save $249.99" in saving.get_text() and "checked 15 November 2026" in saving.get_text()
+    assert saving.a["href"] == "https://www.ecovacs.com/ca/" and saving.a.get_text() == "Ecovacs Canada"
+    assert "Price dropped from $280" in doc.select_one(".facts").get_text(" ", strip=True)
+    offer = next(b for b in jsonld(doc) if b["@type"] == "Product")["offers"]
+    spec = {s.get("priceType", "ours"): float(s["price"]) for s in offer["priceSpecification"]}
+    assert float(offer["price"]) == 250 and spec == {"ours": 250.0, "https://schema.org/MSRP": 499.99}
+    inv = json.loads((tmp_path / "out" / "inventory.json").read_text())
+    item = next(i for i in inv["listings"] if i["id"] == "984841858011538")
+    assert item["retail_price"] == 499.99 and item["discount_percent"] == 50 and item["retail_price_source"] == "Ecovacs Canada"
+    assert "retail $499.99, 50% off" in (tmp_path / "out" / "llms.txt").read_text()

@@ -185,3 +185,50 @@ def test_change_report_names_new_gone_and_repriced_listings(pull):
     assert lines == ["New: Shark Navigator vacuum ($90)", "Gone: Emma Hybrid 22 Lite King Mattress – Premium Comfort ($250)",
                      "Repriced: De'Longhi Magnifica Evo – Automatic Espresso & Coffee Machine $400 -> $340"]
     assert changes.diff(day1["listings"], day1["listings"]) == []
+
+
+RETAIL = {"984841858011538": {"retail_price": 499.99, "source": "Ecovacs Canada", "url": "https://www.ecovacs.com/ca/", "basis": "regular", "checked": "2026-11-15"}}
+
+
+def test_retail_price_from_the_retail_file_gives_the_percent_off(pull):
+    l = run(pull, retail=RETAIL)[0]["listings"][1]
+    assert l["price"] == 250.0 and l["msrp"] == 499.99 and l["discount_pct"] == 50
+    assert l["retail_source"] == "Ecovacs Canada" and l["retail_url"] == "https://www.ecovacs.com/ca/"
+    assert l["retail_basis"] == "regular" and l["retail_checked"] == "2026-11-15"
+
+
+@pytest.mark.parametrize("entry", [
+    {"retail_price": 250, "source": "Shop"},            # same as the asking price: no saving to show
+    {"retail_price": 199.99, "source": "Shop"},         # below the asking price
+    {"retail_price": 499.99},                           # no source named
+    {"retail_price": "499.99", "source": "Shop"},       # not a number
+    {"status": "not_found", "note": "US price only"},
+])
+def test_a_retail_price_that_is_not_a_real_saving_is_never_shown(pull, entry):
+    l = run(pull, retail={"984841858011538": entry})[0]["listings"][1]
+    assert l["msrp"] is None and l["discount_pct"] is None and l["retail_source"] is None
+
+
+def test_a_manual_override_beats_the_retail_file(pull):
+    l = run(pull, retail=RETAIL, overrides={"984841858011538": {"msrp": 600}})[0]["listings"][1]
+    assert l["msrp"] == 600 and l["discount_pct"] == 58 and l["retail_source"] is None
+
+
+def test_missing_lists_what_still_needs_a_retail_price(pull):
+    from datetime import date
+    from scraper import retail
+    snap = run(pull, retail=RETAIL)[0]
+    other = [l["id"] for l in snap["listings"] if l["id"] != "984841858011538"]
+    assert [l["id"] for l in retail.missing(snap["listings"], RETAIL, date(2026, 11, 16))] == other
+    tried = {**RETAIL, other[0]: {"status": "not_found", "checked": "2026-11-15"}}
+    assert [l["id"] for l in retail.missing(snap["listings"], tried, date(2026, 11, 16))] == other[1:], "not retried the next day"
+    assert [l["id"] for l in retail.missing(snap["listings"], tried, date(2026, 12, 20))] == other, "retried after a month"
+
+
+def test_apply_puts_new_retail_prices_on_an_existing_snapshot(pull):
+    from scraper import retail
+    snap = run(pull)[0]
+    assert retail.apply(snap, RETAIL) == 1
+    l = snap["listings"][1]
+    assert l["msrp"] == 499.99 and l["discount_pct"] == 50 and l["retail_source"] == "Ecovacs Canada"
+    assert retail.apply(snap, {}) == 0 and l["msrp"] is None and l["retail_source"] is None, "a removed price disappears"

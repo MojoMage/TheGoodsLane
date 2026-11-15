@@ -15,8 +15,8 @@
       "price": 400.0,
       "currency": "CAD",
       "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 999.99,
+      "discount_pct": 60,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "De'Longhi",
@@ -33,7 +33,11 @@
           "width": 960,
           "height": 720
         }
-      ]
+      ],
+      "retail_source": "Canadian Tire",
+      "retail_url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "29604762245854972",
@@ -45,8 +49,8 @@
       "price": 400.0,
       "currency": "CAD",
       "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 999.99,
+      "discount_pct": 60,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "De'Longhi",
@@ -68,7 +72,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": "Canadian Tire",
+      "retail_url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "1640103387606427",
@@ -80,8 +88,8 @@
       "price": 250.0,
       "currency": "CAD",
       "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 749.99,
+      "discount_pct": 67,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -103,7 +111,11 @@
           "width": 960,
           "height": 480
         }
-      ]
+      ],
+      "retail_source": "Ecovacs Canada",
+      "retail_url": "https://www.ecovacs.com/ca/shop/deebot-robotic-vacuum-cleaner?page=4",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "1476828964578681",
@@ -143,7 +155,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     },
     {
       "id": "2212135199712429",
@@ -155,8 +171,8 @@
       "price": 340.0,
       "currency": "CAD",
       "previous_price": 380.0,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 849.99,
+      "discount_pct": 60,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "De'Longhi",
@@ -173,7 +189,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": "Consiglio's Kitchenware",
+      "retail_url": "https://consiglioskitchenware.com/products/delonghi-magnifica-start-lattecrema-espresso-machine-ecam22080b",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "1441593824094441",
@@ -203,7 +223,11 @@
           "width": 960,
           "height": 870
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     },
     {
       "id": "993072010507922",
@@ -253,7 +277,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     },
     {
       "id": "1602651931072047",
@@ -265,8 +293,8 @@
       "price": 85.0,
       "currency": "CAD",
       "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 159.99,
+      "discount_pct": 47,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Hoover",
@@ -298,7 +326,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": "Canadian Tire",
+      "retail_url": "https://www.canadiantire.ca/en/pdp/hoover-cleanslate-pet-plus-carpet-upholstery-corded-portable-spot-deep-cleaner-0437155p.html",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "984841858011538",
@@ -310,8 +342,8 @@
       "price": 250.0,
       "currency": "CAD",
       "previous_price": 280.0,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 499.99,
+      "discount_pct": 50,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -333,7 +365,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": "Ecovacs Canada",
+      "retail_url": "https://www.ecovacs.com/ca/shop/deebot-robotic-vacuum-cleaner",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "2392643971271890",
@@ -345,8 +381,8 @@
       "price": 250.0,
       "currency": "CAD",
       "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 1999.99,
+      "discount_pct": 87,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -363,7 +399,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": "Ecovacs Canada suggested retail price at launch, 2023",
+      "retail_url": "https://newswire.ca/news-releases/ecovacs-debuts-newly-designed-deebot-x2-omni-to-clean-every-square-inch-of-your-floors-813388991.html",
+      "retail_basis": "launch",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "1849095959415056",
@@ -408,7 +448,11 @@
           "width": 960,
           "height": 720
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     },
     {
       "id": "1503712531593162",
@@ -420,8 +464,8 @@
       "price": 400.0,
       "currency": "CAD",
       "previous_price": 480.0,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 999.99,
+      "discount_pct": 60,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "De'Longhi",
@@ -438,7 +482,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": "Canadian Tire",
+      "retail_url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "1752504019803373",
@@ -450,8 +498,8 @@
       "price": 250.0,
       "currency": "CAD",
       "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 1999.99,
+      "discount_pct": 87,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -468,7 +516,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": "Ecovacs Canada suggested retail price at launch, 2023",
+      "retail_url": "https://newswire.ca/news-releases/ecovacs-debuts-newly-designed-deebot-x2-omni-to-clean-every-square-inch-of-your-floors-813388991.html",
+      "retail_basis": "launch",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "1892103009078665",
@@ -508,7 +560,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     },
     {
       "id": "1093337840118530",
@@ -543,7 +599,11 @@
           "width": 960,
           "height": 720
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     },
     {
       "id": "1669557128017676",
@@ -555,8 +615,8 @@
       "price": 180.0,
       "currency": "CAD",
       "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 209.0,
+      "discount_pct": 14,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Litheli",
@@ -578,7 +638,11 @@
           "width": 960,
           "height": 720
         }
-      ]
+      ],
+      "retail_source": "RONA",
+      "retail_url": "https://rona.ca/en/product/litheli-u20-brushless-leaf-blower-u20br00-0a220-332042542",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "1743035326813240",
@@ -623,7 +687,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     },
     {
       "id": "1814777619671191",
@@ -635,8 +703,8 @@
       "price": 280.0,
       "currency": "CAD",
       "previous_price": 300.0,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 1799.99,
+      "discount_pct": 84,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -653,7 +721,11 @@
           "width": 960,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": "Best Buy Canada price at launch, 2023",
+      "retail_url": "https://www.bestbuy.ca/en-ca/product/ecovacs-deebot-t20-omni-robot-vacuum-mop-white/17146800",
+      "retail_basis": "launch",
+      "retail_checked": "2026-11-15"
     },
     {
       "id": "1792027652123038",
@@ -683,7 +755,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     },
     {
       "id": "1125124120200319",
@@ -718,7 +794,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     },
     {
       "id": "1636915607777200",
@@ -753,7 +833,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     },
     {
       "id": "1906899391029783",
@@ -783,7 +867,11 @@
           "width": 720,
           "height": 960
         }
-      ]
+      ],
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null
     }
   ]
 }

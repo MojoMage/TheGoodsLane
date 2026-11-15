@@ -14,7 +14,7 @@ import html
 import json
 import shutil
 import sys
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import quote, urlparse
 from zoneinfo import ZoneInfo
@@ -164,8 +164,12 @@ def faq_for(site: dict) -> list[dict]:
          "a": f"Yes. Delivery is available at a reasonable charge on many items. Message {first} with your location "
               "for a quote, or pick up in person."},
         {"q": "How do I buy something?",
-         "a": f"Open the item and tap the Messenger button to chat with {site['owner']}. If Messenger doesn't open, "
-              f"message or text him on WhatsApp at {site['phone_display']}."},
+         "a": f"Open the item and message {site['owner']} on Messenger or WhatsApp, whichever you use. You can also "
+              f"text {site['phone_display']}."},
+        {"q": "How are the savings worked out?",
+         "a": "The crossed-out price is what the same model costs brand new in Canada, taken from a Canadian retailer "
+              "or the manufacturer and named on the item's page. The percentage is the difference between that and our "
+              "price. Items where we could not confirm a retail price show no percentage."},
         {"q": "How current is this page?",
          "a": f"Stock is checked against {site['owner']}'s Facebook Marketplace listings every day. Sold items are "
               "removed and new ones added at each check."},
@@ -202,6 +206,9 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
         l["price_text"] = money(l["price"])
         l["msrp_text"] = money(l["msrp"]) if l.get("msrp") else ""
         l["previous_price_text"] = money(l["previous_price"]) if l.get("previous_price") else ""
+        l["saving_text"] = money(round(l["msrp"] - l["price"], 2)) if l.get("discount_pct") else ""
+        checked = l.get("retail_checked")
+        l["retail_checked_text"] = f"{date.fromisoformat(checked).day} {date.fromisoformat(checked):%B %Y}" if checked else ""
         l["images"] = make_images(l, data_dir, out, p)
         # the gallery frame follows the first photo's shape, kept between 3:4 portrait and 4:3 landscape
         first_photo = l["images"][0] if l["images"] else {"w": 4, "h": 5}
@@ -228,6 +235,11 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
         "updated_short": f"{updated:%b} {updated.day}",
     }
     business, faq, n = business_jsonld(site, base), faq_for(site), len(listings)
+    pcts = sorted(l["discount_pct"] for l in listings if l.get("discount_pct"))
+    savings = {"low": pcts[0], "high": pcts[-1], "count": len(pcts)} if len(pcts) >= 3 and pcts[0] != pcts[-1] else None
+    common["savings"] = savings
+    saving_line = (f"up to {savings['high']}% below retail" if savings
+                   else f"typically {site['discount_range']} below retail")
 
     def write(rel: str, template: str, **ctx):
         path = out / rel
@@ -236,9 +248,8 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
 
     write("index.html", "home.html", listings=listings, category=None, faq=faq, page={
         "title": f"{site['name']}: new and open-box deals in {site['city']} and GTA",
-        "description": one_line(f"{n} new and open-box electronics, appliances and home goods at liquidation prices, "
-                                f"typically {site['discount_range']} below retail. Pickup in {site['city']}; delivery "
-                                "across the GTA."),
+        "description": one_line(f"{n} new and open-box electronics, appliances and home goods at liquidation prices: "
+                                f"{saving_line}. Pickup in {site['city']}; delivery across the GTA."),
         "canonical": f"{base}/" if base else "",
         "jsonld": [business,
                    {"@context": "https://schema.org", "@type": "WebSite", "@id": f"{base}/#website", "url": f"{base}/",
@@ -263,7 +274,8 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
         related = [r for r in listings if r["id"] != l["id"] and r["category"] == l["category"]]
         related += [r for r in listings if r["id"] != l["id"] and r not in related]
         cond = f"{l['condition']}. " if l["condition"] else ""
-        desc = (f"{l['title']} for {l['price_text']}. {cond}Pickup in {site['city']}, {site['region']}; delivery "
+        off = f" ({l['discount_pct']}% off the {l['msrp_text']} retail price)" if l.get("discount_pct") else ""
+        desc = (f"{l['title']} for {l['price_text']}{off}. {cond}Pickup in {site['city']}, {site['region']}; delivery "
                 f"available. Message {site['owner']} on Messenger or WhatsApp.")
         write(f"item/{l['slug']}/index.html", "item.html", l=l, related=related[:4], page={
             "title": one_line(f"{l['title']} for {l['price_text']} in {site['city']} | {site['name']}", 110),
@@ -293,7 +305,9 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
 
     public = [{
         "id": l["id"], "title": l["title"], "url": l["page_url"], "price": l["price"], "currency": l["currency"],
-        "previous_price": l.get("previous_price"), "retail_price": l.get("msrp"), "condition": l["condition"],
+        "previous_price": l.get("previous_price"), "retail_price": l.get("msrp"),
+        "discount_percent": l.get("discount_pct"), "retail_price_source": l.get("retail_source"),
+        "retail_price_source_url": l.get("retail_url"), "condition": l["condition"],
         "brand": l["brand"], "category": l["category_name"], "status": l["status"],
         "pickup_location": l["location"] or f"{site['city']}, {site['region']}", "description": l["description"],
         "images": [origin(base) + im["full"] for im in l["images"]], "facebook_title": l.get("facebook_title"),
@@ -309,7 +323,8 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
         "listings": public}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     def md_line(l):
-        was = f" (was {l['previous_price_text']})" if l.get("previous_price") else ""
+        was = (f" (retail {l['msrp_text']}, {l['discount_pct']}% off)" if l.get("discount_pct")
+               else f" (was {l['previous_price_text']})" if l.get("previous_price") else "")
         cond = f" Condition: {l['condition']}." if l["condition"] else ""
         return f"- [{l['title']}]({l['page_url']}): {l['price_text']} {l['currency']}{was}.{cond}"
 
@@ -328,6 +343,7 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
           f"({base}/llms-full.txt)\n- [Sitemap]({base}/sitemap.xml)\n", encoding="utf-8")
     (out / "llms-full.txt").write_text(head + "## In stock\n\n" + "\n\n".join(
         f"### {l['title']}\n\n- Price: {l['price_text']} {l['currency']}\n"
+        + (f"- Retail price: {l['msrp_text']} ({l['discount_pct']}% off; source: {l.get('retail_source') or 'seller'})\n" if l.get("discount_pct") else "")
         + (f"- Previous price: {l['previous_price_text']}\n" if l.get("previous_price") else "")
         + (f"- Condition: {l['condition']}\n" if l["condition"] else "")
         + (f"- Brand: {l['brand']}\n" if l["brand"] else "")

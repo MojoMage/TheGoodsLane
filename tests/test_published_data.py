@@ -39,3 +39,20 @@ def test_no_stray_photo_folders():
     ids = {l["id"] for l in snapshot()["listings"]}
     on_disk = {p.name for p in (DATA / "photos").iterdir()} if (DATA / "photos").exists() else set()
     assert on_disk == {i for i in ids if any(l["photos"] for l in snapshot()["listings"] if l["id"] == i)}
+
+
+def test_every_percent_off_is_backed_by_a_named_canadian_source():
+    from scraper import retail
+    from scraper.ingest import pct_off
+    prices = retail.load()
+    listings = snapshot()["listings"]
+    for l in listings:
+        if l["discount_pct"] is None:
+            assert l["msrp"] is None
+            continue
+        assert l["msrp"] > l["price"] and l["discount_pct"] == pct_off(l["price"], l["msrp"]) and 1 <= l["discount_pct"] <= 95
+        entry = prices[l["id"]]
+        assert entry["retail_price"] == l["msrp"] and entry["source"] == l["retail_source"] and entry["product"]
+        assert entry["url"].startswith("https://") and entry["basis"] in ("regular", "launch") and entry["checked"]
+    for key, entry in prices.items():
+        assert key.isdigit() and ("retail_price" in entry or entry.get("status") == "not_found"), key

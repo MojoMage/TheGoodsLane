@@ -36,7 +36,10 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="wrap top">
   <a class="brand" href="{{ p }}/" aria-label="{{ site.name }} home">{% include "_mark.svg" %}<span>{{ site.name }}</span></a>
-  <a class="pill" href="{{ site.messenger_url }}" target="_blank" rel="noopener" data-contact="messenger" data-whatsapp="{{ wa_general }}" data-message="{{ msg_general }}">Message {{ site.owner_first_name }}</a>
+  <nav class="talk" aria-label="Message {{ site.owner_first_name }}">
+    <a class="chan chan-m" href="{{ site.messenger_url }}" target="_blank" rel="noopener">{% include "_icon_messenger.svg" %}Messenger</a>
+    <a class="chan chan-w" href="{{ wa_general }}" target="_blank" rel="noopener">{% include "_icon_whatsapp.svg" %}WhatsApp</a>
+  </nav>
 </header>
 <main id="main" class="wrap">
 {% block main %}{% endblock %}
@@ -55,15 +58,5 @@
     <p class="fine">{{ site.legal_line }}. Stock last checked <time datetime="{{ updated_iso }}">{{ updated_human }}</time>.</p>
   </div>
 </footer>
-<dialog class="sheet" id="contact-sheet" aria-labelledby="sheet-title">
-  <h2 id="sheet-title">Did Messenger open?</h2>
-  <p>If your chat with {{ site.owner_first_name }} didn't open, message him on WhatsApp instead. Your message is already written.</p>
-  <div class="actions">
-    <a class="btn btn-primary" id="sheet-whatsapp" href="{{ wa_general }}" target="_blank" rel="noopener">{% include "_icon_whatsapp.svg" %}Message on WhatsApp</a>
-    <a class="btn btn-secondary" id="sheet-messenger" href="{{ site.messenger_url }}" target="_blank" rel="noopener">{% include "_icon_messenger.svg" %}Try Messenger again</a>
-  </div>
-  <form method="dialog"><button class="btn btn-plain" type="submit">Close</button></form>
-</dialog>
-<script src="{{ p }}/assets/site.js" defer></script>
 </body>
 </html>
