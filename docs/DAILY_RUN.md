@@ -18,18 +18,24 @@ download location is set to it), and push access to `MojoMage/TheGoodsLane`.
 1. **Get the code.** Clone `https://github.com/MojoMage/TheGoodsLane` (push access).
 
 2. **Read the seller's listing ids.** In Claude in Chrome, open a new tab at
-   `https://www.facebook.com/marketplace/profile/61577549634421/` and run
-   `scraper/browser/collect_ids.js` with the JavaScript tool, as `await ` followed by the
-   file's exact contents. Expect `{ok: true, count, ids}`. `ids` is space-separated, in
-   the order to keep. `ok: false` means stop (see Rules).
+   `https://www.facebook.com/marketplace/profile/61577549634421/`. Print the script with
+   `python3 -m scraper.snippets collect` and run that exact text with the JavaScript tool.
+   Expect `{ok: true, count, ids}`. `ids` is space-separated, in the order to keep.
+   `ok: false` means stop (see Rules).
 
-3. **Store each listing.** For every id, in order: navigate the tab to
-   `https://www.facebook.com/marketplace/item/<id>/`, then run
-   `scraper/browser/store_listing.js` the same way. Expect `{id, ok: true, ph, stored}`
-   with `stored` counting up. Batch about 8 listings per `browser_batch` call. Retry a
-   listing that returns `ok: false` once; if it still fails, carry on and report it.
+3. **Store each listing.**
+   - Once, still on the profile page: run the text from `python3 -m scraper.snippets install`.
+     Expect `{ok: true, chars, eval_works: true}`. It parks the listing script in the tab so
+     each listing needs only a one-line call.
+   - Then for every id, in order: navigate the tab to
+     `https://www.facebook.com/marketplace/item/<id>/` and run
+     `await eval(sessionStorage.getItem('gl_store'))`. Expect `{id, ok: true, ph, stored}`
+     with `stored` counting up. All listings fit in one `browser_batch` call.
+   - If `eval_works` was false, run the text from `python3 -m scraper.snippets store-full`
+     on each listing page instead.
+   - Retry a listing that returns `ok: false` once; if it still fails, carry on and report it.
 
-4. **Save the file.** Run `scraper/browser/export_pull.js` once. Expect
+4. **Save the file.** Run the text from `python3 -m scraper.snippets export` once. Expect
    `{ok: true, count, photos, fileBytes, fileName}`. Chrome saves `fileName` into the
    Desktop folder. Close the tab.
 
@@ -43,11 +49,14 @@ download location is set to it), and push access to `MojoMage/TheGoodsLane`.
 
 8. **Commit the data.** `git add data && git commit -m "Inventory update <date>"`, push `main`.
 
-9. **Publish.** `scripts/publish.sh` builds the site and pushes it to `gh-pages`.
+9. **Publish.** `scripts/publish.sh` runs the tests, builds the site and pushes it to `gh-pages`.
 
-10. **Check the live site.** After a minute or two, open
-    `https://mojomage.github.io/TheGoodsLane/inventory.json` and confirm `count` and
-    `updated_at` match what was just published.
+10. **Check the publish.** GitHub Pages redeploys within a minute or two. Confirm with
+    `curl -s https://api.github.com/repos/MojoMage/TheGoodsLane/deployments?per_page=1`
+    (newest deployment is for the commit just pushed) and its `statuses_url` (state
+    `success`). If a browser or web fetch can open
+    `https://mojomage.github.io/TheGoodsLane/inventory.json`, also check `count` and
+    `updated_at` there.
 
 11. **Report** in a few lines: listings and photos pulled, what was added or sold since
     yesterday, and anything that failed. Pull files accumulate in the Desktop folder
@@ -63,3 +72,9 @@ download location is set to it), and push access to `MojoMage/TheGoodsLane`.
 | Site blocked in the browser | Site permissions changed | Report; do not work around it |
 | File not in the Desktop folder | Chrome's download location changed | Report; it must point at the folder |
 | Ingest "Inventory dropped from X to Y" | Real clear-out, or a broken pull | Report both counts; re-run with `--force` only if Ali confirms |
+
+## Proven runs
+
+- 2026-11-14: three pulls, identical results (22 listings, 46 photos).
+- 2026-11-15: full run with the scripts exactly as in this repo, short form. 22 listings,
+  46 photos, 6.0 MB file. It picked up a real overnight price drop ($380 to $340).

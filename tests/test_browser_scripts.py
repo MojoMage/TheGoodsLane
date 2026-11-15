@@ -6,7 +6,6 @@ and photos in the page, save one file, and feed that file to ingest.
 import hashlib
 import json
 import re
-from pathlib import Path
 
 import pytest
 
@@ -14,8 +13,12 @@ from scraper import ingest
 from tests import fakefb
 
 pytestmark = pytest.mark.browser
-SCRIPTS = Path(__file__).resolve().parent.parent / "scraper" / "browser"
-COLLECT, STORE, EXPORT = [(SCRIPTS / n).read_text() for n in ("collect_ids.js", "store_listing.js", "export_pull.js")]
+from scraper import snippets
+
+# The tests run the scripts in the exact form the daily job pastes them (python3 -m scraper.snippets ...).
+# Playwright awaits the returned promise itself, so the leading "await " is dropped here.
+COLLECT, STORE, EXPORT, INSTALL, STORE_SHORT = [snippets.snippet(n)[len("await "):] for n in
+                                                ("collect", "store-full", "export", "install", "store")]
 PROFILE = f"https://www.facebook.com/marketplace/profile/{fakefb.SELLER_ID}/"
 
 
@@ -143,3 +146,31 @@ def test_a_new_pull_starts_clean(page, tmp_path):
     page.goto(PROFILE)
     page.evaluate(COLLECT)
     assert page.evaluate(EXPORT)["ok"] is False, "collect empties a half-finished earlier run"
+
+
+def test_short_form_gives_the_same_file_as_pasting_the_whole_script(page, tmp_path):
+    fake_facebook(page)
+    _, _, _, full = run_pull(page, tmp_path)
+    page.goto(PROFILE)
+    found = page.evaluate(COLLECT)
+    installed = page.evaluate(INSTALL)
+    assert installed["ok"] and installed["eval_works"] and installed["chars"] > 1500
+    for listing_id in found["ids"].split():
+        page.goto(f"https://www.facebook.com/marketplace/item/{listing_id}/")
+        assert page.evaluate(STORE_SHORT)["ok"]
+    with page.expect_download() as download:
+        page.evaluate(EXPORT)
+    short = tmp_path / "short.json"
+    download.value.save_as(short)
+    a, b = json.loads(full.read_text()), json.loads(short.read_text())
+    assert a["listings"] == b["listings"]
+
+
+def test_snippets_are_the_scripts_minus_comments():
+    for name, file in snippets.FILES.items():
+        text = snippets.snippet(name)
+        assert text.startswith("await (async () => {") and text.endswith("})()") and "//" not in text.replace("https://", "")
+        source = (snippets.BROWSER / file).read_text()
+        kept = [l.strip() for l in source.splitlines() if l.strip() and not l.strip().startswith("//")]
+        assert text == "await " + "\n".join(kept)
+    assert snippets.snippet("store") == "await eval(sessionStorage.getItem('gl_store'))"

@@ -35,5 +35,6 @@
   document.body.appendChild(a); a.click(); a.remove();
   await new Promise(r => setTimeout(r, 2000));
   await new Promise(res => { const q = indexedDB.deleteDatabase('goods_lane_pull'); q.onsuccess = q.onerror = q.onblocked = () => res(); });
+  sessionStorage.removeItem('gl_store');
   return { ok: true, count: recs.length, photos: nph, fileBytes: blob.size, fileName };
 })()
