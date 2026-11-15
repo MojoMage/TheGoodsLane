@@ -1,0 +1,23 @@
+{
+  "name": "The Goods Lane",
+  "legal_line": "The Goods Lane by Abbottcom",
+  "owner": "Ali Abbas",
+  "owner_first_name": "Ali",
+  "base_url": "https://mojomage.github.io/TheGoodsLane",
+  "tagline": "New and open-box electronics and home goods in Mississauga",
+  "description": "The Goods Lane sells new and open-box electronics, appliances and home goods at liquidation prices, typically 30 to 70% below retail. Pick up in Mississauga or ask about delivery across the Greater Toronto Area.",
+  "discount_range": "30 to 70%",
+  "facebook_profile_id": "61577549634421",
+  "marketplace_profile_url": "https://www.facebook.com/marketplace/profile/61577549634421/",
+  "messenger_url": "https://m.me/61577549634421",
+  "whatsapp_number": "16477706652",
+  "phone_e164": "+16477706652",
+  "phone_display": "647-770-6652",
+  "city": "Mississauga",
+  "region": "ON",
+  "region_name": "Ontario",
+  "country": "CA",
+  "pickup_area": "Matheson Blvd E and Hurontario St, near Square One",
+  "currency": "CAD",
+  "areas_served": ["Mississauga", "Toronto", "Brampton", "Oakville", "Etobicoke", "Milton", "Burlington", "Vaughan", "Markham", "Richmond Hill"]
+}

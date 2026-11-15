@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% from "_card.html" import card %}
+{% block main %}
+<nav class="crumbs" aria-label="Breadcrumb"><a href="{{ p }}/">Everything</a> / <a href="{{ p }}/shop/{{ l.category }}/">{{ l.category_name }}</a></nav>
+<article class="item">
+  <div class="item-main">
+    <div>
+      <div class="gallery" id="gallery" style="--ar:{{ l.ar }}">
+        {% for im in l.images %}
+        <figure id="photo-{{ loop.index }}"><img src="{{ im.full }}" alt="{{ l.title }}{% if l.images|length > 1 %}, photo {{ loop.index }} of {{ l.images|length }}{% endif %}" width="{{ im.w }}" height="{{ im.h }}"{% if loop.first %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async"></figure>
+        {% endfor %}
+      </div>
+      {% if l.images|length > 1 %}
+      <ul class="thumbs" aria-label="Photos">
+        {% for im in l.images %}<li><a href="#photo-{{ loop.index }}" aria-label="Photo {{ loop.index }}"><img src="{{ im.thumb }}" alt="" width="56" height="70" loading="lazy"></a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    <div>
+      <h1>{{ l.title }}</h1>
+      <p class="money"><span class="price">{{ l.price_text }}</span>{% if l.previous_price %}<span class="was">was <s>{{ l.previous_price_text }}</s></span>{% endif %}{% if l.msrp %}<span class="was">retail <s>{{ l.msrp_text }}</s></span>{% endif %}{% if l.discount_pct %}<span class="off">{{ l.discount_pct }}% off</span>{% endif %}</p>
+      <ul class="facts">
+        {% if l.status == 'pending' %}<li><span>Status</span><span>Sale pending</span></li>{% endif %}
+        {% if l.condition %}<li><span>Condition</span><span>{{ l.condition }}</span></li>{% endif %}
+        {% if l.brand %}<li><span>Brand</span><span>{{ l.brand }}</span></li>{% endif %}
+        <li><span>Pickup</span><span>{{ l.location or (site.city ~ ', ' ~ site.region) }}</span></li>
+      </ul>
+      <div class="actions inline-actions">
+        <a class="btn btn-primary" href="{{ site.messenger_url }}" target="_blank" rel="noopener" data-contact="messenger" data-whatsapp="{{ l.whatsapp_url }}" data-message="{{ l.message }}">{% include "_icon_messenger.svg" %}Message {{ site.owner_first_name }} on Messenger</a>
+        <a class="btn btn-secondary" href="{{ l.whatsapp_url }}" target="_blank" rel="noopener">{% include "_icon_whatsapp.svg" %}Message on WhatsApp</a>
+      </div>
+      {% if l.description %}<p class="desc">{{ l.description }}</p>{% endif %}
+      <p class="note">Sold by {{ site.owner }}, {{ site.name }}. Price and availability checked on <time datetime="{{ updated_iso }}">{{ updated_human }}</time>. <a href="{{ l.url }}" target="_blank" rel="noopener">See this listing on Facebook Marketplace</a>.</p>
+    </div>
+  </div>
+</article>
+
+{% if related %}
+<section class="block" aria-labelledby="more">
+  <h2 id="more">More in stock</h2>
+  <ul class="grid" style="margin-top:18px">
+    {% for r in related %}<li>{{ card(r, p, false) }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<div class="bar">
+  <span class="price">{{ l.price_text }}</span>
+  <a class="btn btn-primary" href="{{ site.messenger_url }}" target="_blank" rel="noopener" data-contact="messenger" data-whatsapp="{{ l.whatsapp_url }}" data-message="{{ l.message }}">{% include "_icon_messenger.svg" %}Message {{ site.owner_first_name }}</a>
+  <a class="btn btn-secondary" href="{{ l.whatsapp_url }}" target="_blank" rel="noopener" aria-label="Message {{ site.owner_first_name }} on WhatsApp">{% include "_icon_whatsapp.svg" %}</a>
+</div>
+{% endblock %}
