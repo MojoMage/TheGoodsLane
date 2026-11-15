@@ -45,7 +45,8 @@ download location is set to it), and push access to `MojoMage/TheGoodsLane`.
 6. **Ingest.** `python3 -m scraper.ingest <staged file>`. Exit code 2 means the pull was
    rejected: stop, report the reason, publish nothing.
 
-7. **Test.** `python3 -m pytest -q` must pass.
+7. **Test and note the changes.** `python3 -m pytest -q` must pass. Then run
+   `python3 -m scraper.changes` and keep its output for the report.
 
 8. **Commit the data.** `git add data && git commit -m "Inventory update <date>"`, push `main`.
 

@@ -172,3 +172,16 @@ def test_cli_leaves_existing_data_alone_when_rejected(tmp_path, pull):
     before = (data / "listings.json").read_text()
     assert ingest.main([str(bad), "--data-dir", str(data)]) == 2
     assert (data / "listings.json").read_text() == before and (data / "photos" / "984841858011538" / "1.jpg").exists()
+
+
+def test_change_report_names_new_gone_and_repriced_listings(pull):
+    from scraper import changes
+    day1, _ = run(pull)
+    later = copy.deepcopy(pull)
+    later["listings"][0]["price"] = "340.00"
+    later["listings"] = later["listings"][:3] + [{**copy.deepcopy(later["listings"][2]), "id": "555", "title": "Shark Navigator vacuum"}]
+    day2, _ = run(later, previous=day1)
+    lines = changes.diff(day1["listings"], day2["listings"])
+    assert lines == ["New: Shark Navigator vacuum ($90)", "Gone: Emma Hybrid 22 Lite King Mattress – Premium Comfort ($250)",
+                     "Repriced: De'Longhi Magnifica Evo – Automatic Espresso & Coffee Machine $400 -> $340"]
+    assert changes.diff(day1["listings"], day1["listings"]) == []
