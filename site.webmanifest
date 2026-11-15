@@ -1,0 +1,15 @@
+{
+  "name": "The Goods Lane",
+  "short_name": "Goods Lane",
+  "start_url": "/TheGoodsLane/",
+  "display": "browser",
+  "background_color": "#F7F6F3",
+  "theme_color": "#F7F6F3",
+  "icons": [
+    {
+      "src": "/TheGoodsLane/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
