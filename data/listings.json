@@ -849,8 +849,8 @@
       "price": 280.0,
       "currency": "CAD",
       "previous_price": 300.0,
-      "msrp": null,
-      "discount_pct": null,
+      "msrp": 1699.99,
+      "discount_pct": 84,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -868,10 +868,10 @@
           "height": 960
         }
       ],
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null
+      "retail_source": "Ecovacs Canada (T30S Combo price)",
+      "retail_url": "https://ecovacs.com/ca/deebot-robotic-vacuum-cleaner/deebot-t30s-combo",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-16"
     }
   ]
 }

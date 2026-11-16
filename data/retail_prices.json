@@ -83,9 +83,13 @@
     "checked": "2026-11-15"
   },
   "1906899391029783": {
-    "status": "not_found",
-    "note": "Deebot T30S: no Canadian price found for the plain T30S (US list price US$999.99). Ecovacs Canada's T30S COMBO, which adds a handheld vacuum, is $1,699.99 regular; not used because it is a different bundle.",
-    "checked": "2026-11-15"
+    "retail_price": 1699.99,
+    "product": "Ecovacs Deebot T30S Combo",
+    "source": "Ecovacs Canada (T30S Combo price)",
+    "url": "https://ecovacs.com/ca/deebot-robotic-vacuum-cleaner/deebot-t30s-combo",
+    "basis": "regular",
+    "checked": "2026-11-16",
+    "note": "Ali Moiz's decision, 2026-11-16: compare against the T30S Combo. Ecovacs Canada advertised $600 off the Combo for $1,099.99, i.e. $1,699.99 regular. The Combo adds a handheld vacuum that the listing does not include; no Canadian price was found for the plain T30S."
   },
   "984841858011538": {
     "retail_price": 499.99,
