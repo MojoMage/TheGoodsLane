@@ -62,6 +62,15 @@ def clean_title(raw: str) -> str:
     return text.strip()
 
 
+# The seller signs listings "The Goods Lane by <company>"; the site shows the shop name only.
+_COMPANY = r"abb?ott?[\s.\-]*com"
+_COMPANY_TAG = re.compile(rf"[ \t]*\bby[ \t]+{_COMPANY}\b|\b{_COMPANY}\b", re.I)
+
+
+def drop_company_name(text: str) -> str:
+    return _COMPANY_TAG.sub("", text or "")
+
+
 def plain_text(text: str, limit: int | None = None) -> str:
     """Description as one clean line (for meta descriptions and feeds)."""
     text = re.sub(r"\s+", " ", strip_symbols(text or "")).strip()

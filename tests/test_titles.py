@@ -40,3 +40,16 @@ def test_clean_title_never_leaves_emoji_or_double_spaces():
 def test_plain_text_makes_one_clean_line():
     assert plain_text("\U0001F525 Great deal!\n\n✅ Works   well .", 200) == "Great deal! Works well."
     assert plain_text("word " * 100, 50).endswith("…") and len(plain_text("word " * 100, 50)) <= 50
+
+
+@pytest.mark.parametrize("raw,clean", [
+    ("Message us today!\n\nThe Goods Lane by Abbottcom\nQuality Products.", "Message us today!\n\nThe Goods Lane\nQuality Products."),
+    ("⭐ THE GOODS LANE BY ABBOTTCOM\nGreat value", "⭐ THE GOODS LANE\nGreat value"),
+    ("The Goods Lane by Abbott Com", "The Goods Lane"),
+    ("Sold by AbbottCom, Mississauga", "Sold, Mississauga"),
+    ("Abbott and Costello box set", "Abbott and Costello box set"),
+    ("Stand by me", "Stand by me"),
+])
+def test_company_name_is_dropped_from_listing_text(raw, clean):
+    from scraper.titles import drop_company_name
+    assert drop_company_name(raw) == clean

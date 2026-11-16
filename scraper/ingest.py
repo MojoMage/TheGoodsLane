@@ -27,7 +27,7 @@ from pathlib import Path
 from PIL import Image
 
 from . import retail as retail_prices
-from .titles import clean_title
+from .titles import clean_title, drop_company_name
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
@@ -151,11 +151,11 @@ def normalize(item: dict, override: dict, old: dict, now: datetime, photos: list
     listing_id = str(item.get("id") or "").strip()
     if not listing_id.isdigit():
         raise ValueError(f"listing has no numeric id: {str(item)[:80]}")
-    facebook_title = str(item.get("title") or "")
+    facebook_title = drop_company_name(str(item.get("title") or "")).strip()
     title = " ".join(str(override.get("title") or clean_title(facebook_title)).split())
     if not title:
         raise ValueError(f"listing {listing_id} has no title")
-    description = str(item.get("description") or "").replace("\r\n", "\n").strip()
+    description = drop_company_name(str(item.get("description") or "").replace("\r\n", "\n")).strip()
     if "description_sha256" in item and hashlib.sha256(
             str(item.get("description") or "").encode("utf-8")).hexdigest() != item["description_sha256"]:
         raise PullRejected(f"description of listing {listing_id} is damaged (checksum mismatch)")

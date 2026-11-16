@@ -3,8 +3,9 @@
     python3 -m scraper.retail missing   # listings that still need a retail price looked up
     python3 -m scraper.retail apply     # put the prices in the file onto data/listings.json
 
-A retail price is only used when it is a Canadian-dollar price for the exact model, from a
-Canadian retailer or the manufacturer, and higher than the asking price. A listing without
+A retail price is only used when it is a Canadian-dollar price for that product, from a
+Canadian retailer or the manufacturer, and higher than the asking price. Several retailers
+are checked and the highest regular price found is the one recorded. A listing without
 one shows no "% off": the site never estimates a saving.
 """
 from __future__ import annotations

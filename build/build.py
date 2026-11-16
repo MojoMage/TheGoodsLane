@@ -86,7 +86,7 @@ def make_images(listing: dict, data_dir: Path, out: Path, p: str) -> list[dict]:
 def business_jsonld(site: dict, base: str) -> dict:
     return {
         "@context": "https://schema.org", "@type": "Store", "@id": f"{base}/#business",
-        "name": site["name"], "alternateName": site["legal_line"], "description": site["description"],
+        "name": site["name"], "description": site["description"],
         "url": f"{base}/", "logo": f"{base}/assets/icon-512.png", "image": f"{base}/assets/og-default.png",
         "telephone": site["phone_e164"], "priceRange": "$", "currenciesAccepted": site["currency"],
         "founder": {"@type": "Person", "name": site["owner"]},
@@ -168,7 +168,8 @@ def faq_for(site: dict) -> list[dict]:
               f"text {site['phone_display']}."},
         {"q": "How are the savings worked out?",
          "a": "The crossed-out price is what the same model costs brand new in Canada, taken from a Canadian retailer "
-              "or the manufacturer and named on the item's page. The percentage is the difference between that and our "
+              "or the manufacturer and named on the item's page. Where shops differ we compare against the highest regular "
+              "price we found. The percentage is the difference between that and our "
               "price. Items where we could not confirm a retail price show no percentage."},
         {"q": "How current is this page?",
          "a": f"Stock is checked against {site['owner']}'s Facebook Marketplace listings every day. Sold items are "
@@ -238,6 +239,8 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
     pcts = sorted(l["discount_pct"] for l in listings if l.get("discount_pct"))
     savings = {"low": pcts[0], "high": pcts[-1], "count": len(pcts)} if len(pcts) >= 3 and pcts[0] != pcts[-1] else None
     common["savings"] = savings
+    with Image.open(HERE / "static" / "logo.png") as logo:
+        common["logo"] = {"width": logo.width, "height": logo.height}
     saving_line = (f"up to {savings['high']}% below retail" if savings
                    else f"typically {site['discount_range']} below retail")
 
@@ -329,7 +332,7 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
         return f"- [{l['title']}]({l['page_url']}): {l['price_text']} {l['currency']}{was}.{cond}"
 
     head = (f"# {site['name']}\n\n> {site['description']}\n\n"
-            f"- Seller: {site['owner']} ({site['legal_line']})\n"
+            f"- Seller: {site['owner']}\n"
             f"- Location: {site['city']}, {site['region_name']}, Canada. Pickup around {site['pickup_area']}.\n"
             f"- Delivery: available across the Greater Toronto Area at a reasonable charge; ask for a quote.\n"
             f"- Serves: {', '.join(site['areas_served'])} and the rest of the Greater Toronto Area\n"
@@ -363,7 +366,8 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
     (out / "site.webmanifest").write_text(json.dumps({
         "name": site["name"], "short_name": "Goods Lane", "start_url": f"{p}/", "display": "browser",
         "background_color": "#F7F6F3", "theme_color": "#F7F6F3",
-        "icons": [{"src": f"{p}/assets/icon-512.png", "sizes": "512x512", "type": "image/png"}]}, indent=2),
+        "icons": [{"src": f"{p}/assets/icon-192.png", "sizes": "192x192", "type": "image/png"},
+                  {"src": f"{p}/assets/icon-512.png", "sizes": "512x512", "type": "image/png"}]}, indent=2),
         encoding="utf-8")
     return {"pages": len(urls), "listings": len(listings), "categories": len(categories),
             "photos": sum(len(l["images"]) for l in listings), "base": base, "out": str(out)}

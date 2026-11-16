@@ -236,3 +236,24 @@ def test_retail_price_is_struck_out_beside_our_price_with_the_percent_off(tmp_pa
     item = next(i for i in inv["listings"] if i["id"] == "984841858011538")
     assert item["retail_price"] == 499.99 and item["discount_percent"] == 50 and item["retail_price_source"] == "Ecovacs Canada"
     assert "retail $499.99, 50% off" in (tmp_path / "out" / "llms.txt").read_text()
+
+
+def test_logo_is_the_supplied_wordmark_and_no_company_name_is_published(built):
+    from PIL import Image
+    out = built["out"]
+    for page in [out / "index.html", *item_pages(built)]:
+        img = soup(page).select_one("header a.brand img")
+        assert img["alt"] == "The Goods Lane" and img["src"].endswith("/assets/logo.png")
+        assert int(img["width"]) > 0 and int(img["height"]) > 0 and not soup(page).select("header a.brand svg")
+    with Image.open(out / "assets" / "logo.png") as logo:
+        assert logo.mode == "RGBA" and logo.getpixel((0, 0))[3] == 0, "cut out, so it sits on the page colour"
+        assert logo.width >= 400 and 0.9 < logo.width / logo.height < 1.3
+    for name, size in [("favicon-32.png", 32), ("favicon-48.png", 48), ("apple-touch-icon.png", 180), ("icon-512.png", 512)]:
+        with Image.open(out / "assets" / name) as icon:
+            assert icon.size == (size, size)
+    with Image.open(out / "assets" / "og-default.png") as og:
+        assert og.size == (1200, 630)
+    assert not (out / "assets" / "mark.svg").exists() and not (out / "assets" / "favicon.svg").exists()
+    for f in out.rglob("*"):
+        if f.suffix in {".html", ".json", ".txt", ".xml", ".webmanifest"}:
+            assert "abbott" not in f.read_text(encoding="utf-8").lower(), f

@@ -56,3 +56,20 @@ def test_every_percent_off_is_backed_by_a_named_canadian_source():
         assert entry["url"].startswith("https://") and entry["basis"] in ("regular", "launch") and entry["checked"]
     for key, entry in prices.items():
         assert key.isdigit() and ("retail_price" in entry or entry.get("status") == "not_found"), key
+
+
+def test_company_name_is_nowhere_in_the_project():
+    import subprocess
+    root = Path(__file__).resolve().parent.parent
+    files = subprocess.run(["git", "ls-files"], cwd=root, capture_output=True, text=True, check=True).stdout.split()
+    hits = []
+    for name in files:
+        if name.startswith("tests/") or name == "scraper/titles.py":
+            continue  # the filter itself and its tests have to name what they remove
+        try:
+            text = (root / name).read_text(encoding="utf-8")
+        except (UnicodeDecodeError, FileNotFoundError):
+            continue
+        if "abbott" in text.lower():
+            hits.append(name)
+    assert hits == []

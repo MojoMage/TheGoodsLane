@@ -51,14 +51,20 @@ download location is set to it), and push access to `MojoMage/TheGoodsLane`.
    web for what the exact model costs brand new in Canada and add an entry to
    `data/retail_prices.json` keyed by the listing id:
    `{"retail_price": 999.99, "product": "<brand, model, model number>", "source": "Canadian Tire", "url": "https://...", "basis": "regular", "checked": "<today>"}`.
-   Rules: Canadian dollars only, from a Canadian retailer or the manufacturer's Canadian
-   site or Canadian press release; never a US price, never a converted price, never an
+   Where to look: do not stop at the first shop. Check Canadian Tire, Walmart.ca, Amazon.ca,
+   Best Buy Canada, Costco.ca, Home Depot, RONA, Staples and the manufacturer's Canadian store,
+   and record the **highest** regular price found for that product. When the listing could be
+   one of several versions of the same product (colour, bundle size), use the most expensive
+   version it could actually be; never a different product (a "Pet", "Pro" or "Combo" model
+   the listing is not).
+   Rules: Canadian dollars only; never a US price, never a converted price, never an
    estimate. Use the regular (non-sale, "was") price; for a model no longer sold new, the
-   Canadian launch price with `"basis": "launch"`. Match the exact model: check the listing
-   photos when the text is vague (the box usually names it). Only record a link that came
-   back from a search or fetch. If nothing qualifies after a couple of searches, record
-   `{"status": "not_found", "note": "<why>", "checked": "<today>"}` and move on: that listing
-   shows its price with no badge. Spend at most a few minutes on this step. Then run
+   Canadian launch price with `"basis": "launch"`. Check the listing photos when the text is
+   vague (the box usually names the model). Only record a link that came back from a search
+   or fetch, and say in `"note"` which other prices were seen. If nothing qualifies after a
+   few searches, record `{"status": "not_found", "note": "<why>", "checked": "<today>"}` and
+   move on: that listing shows its price with no badge. Spend at most a few minutes per
+   listing. Then run
    `python3 -m scraper.retail apply`.
 
 8. **Test and note the changes.** `python3 -m pytest -q` must pass. Then run

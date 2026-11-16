@@ -1,5 +1,5 @@
 {
-  "_about": "Brand-new retail price per listing, in CAD, from a Canadian retailer or the manufacturer's Canadian price. Keyed by Facebook listing id. basis: 'regular' = the retailer's regular (non-sale) price; 'launch' = the manufacturer's suggested retail price at launch for a model no longer sold new. Entries with status 'not_found' are listings where no Canadian price could be confirmed for the exact model.",
+  "_about": "Brand-new retail price per listing, in CAD, keyed by Facebook listing id. Several Canadian retailers and the manufacturer's Canadian store are checked and the highest regular price found for that product is used. basis: 'regular' = a regular (non-sale) price; 'launch' = the Canadian launch price of a model no longer sold new. Entries with status 'not_found' are listings where no Canadian price could be confirmed.",
   "1647194386782124": {
     "retail_price": 999.99,
     "product": "De'Longhi Magnifica Evo with LatteCrema, ECAM29084SB",
@@ -33,13 +33,13 @@
     "checked": "2026-11-15"
   },
   "1640103387606427": {
-    "retail_price": 749.99,
+    "retail_price": 1199.99,
     "product": "Ecovacs Deebot N30 Pro Omni",
     "source": "Ecovacs Canada",
-    "url": "https://www.ecovacs.com/ca/shop/deebot-robotic-vacuum-cleaner?page=4",
+    "url": "https://ecovacs.com/ca/deebot-robotic-vacuum-cleaner/deebot-n30pro-omni",
     "basis": "regular",
     "checked": "2026-11-15",
-    "note": "C$749.99 shown for the white N30 Pro Omni (sold out) in the search-index copy of the store page; the live page no longer shows a price."
+    "note": "Ecovacs Canada's product page advertised $400 off for $799.99, i.e. a $1,199.99 regular price. Its store listing has also shown C$749.99; the higher figure is used."
   },
   "1602651931072047": {
     "retail_price": 159.99,
@@ -84,7 +84,7 @@
   },
   "1906899391029783": {
     "status": "not_found",
-    "note": "Deebot T30S: only a US price (US$999.99) found, no Canadian price",
+    "note": "Deebot T30S: no Canadian price found for the plain T30S (US list price US$999.99). Ecovacs Canada's T30S COMBO, which adds a handheld vacuum, is $1,699.99 regular; not used because it is a different bundle.",
     "checked": "2026-11-15"
   },
   "984841858011538": {
@@ -98,52 +98,68 @@
   },
   "1743035326813240": {
     "status": "not_found",
-    "note": "Deebot T10+: only a US price (US$949.99) found, no Canadian price",
+    "note": "Deebot T10+: no Canadian price found (US list price US$949.99); Ecovacs Canada and Best Buy Canada show it without a price.",
     "checked": "2026-11-15"
   },
   "1441593824094441": {
     "status": "not_found",
-    "note": "Ninja Deluxe Kitchen System (Costco model CCO905KSSL): Costco.ca does not show its price; US Costco price is US$169.99",
+    "note": "Ninja Deluxe Kitchen System (Costco item 2715291): Costco.ca and Best Buy Canada show no price; US prices only (US$299.99 list at Walmart.com).",
     "checked": "2026-11-15"
   },
   "1849095959415056": {
-    "status": "not_found",
-    "note": "CitiZ Platinum by De'Longhi (EN220M, the 'D' model): Costco.ca and Best Buy Canada show no price; the Breville-made 'C' model is $319 at Nespresso Canada, not used because it is not the same model",
-    "checked": "2026-11-15"
+    "retail_price": 319.0,
+    "product": "Nespresso CitiZ Platinum",
+    "source": "Nespresso Canada",
+    "url": "https://nespresso.com/ca/en/order/machines/original/citiz-platinum-stainless-steel-c-espresso-machine",
+    "basis": "regular",
+    "checked": "2026-11-15",
+    "note": "Nespresso Canada's price for the CitiZ Platinum Stainless Steel C. The listing is the De'Longhi-made D version (EN220M) of the same machine; Costco.ca and Best Buy Canada list that one without a visible price."
   },
   "1792027652123038": {
     "status": "not_found",
-    "note": "Cosco Finale 2-in-1: only a US Walmart price (US$49.97) found",
+    "note": "Cosco Finale 2-in-1: only US Walmart prices found (US$49.97).",
     "checked": "2026-11-15"
   },
   "993072010507922": {
     "status": "not_found",
-    "note": "Compost Genie 14L: only US prices found",
+    "note": "Compost Genie 14L: only US prices found (US$79.99 to US$99.99).",
     "checked": "2026-11-15"
   },
   "1636915607777200": {
     "status": "not_found",
-    "note": "Emma Hybrid 22 Lite King: no retailer listing found for this model",
+    "note": "Emma Hybrid 22 Lite King: no retailer listing found for this model.",
     "checked": "2026-11-15"
   },
   "1125124120200319": {
-    "status": "not_found",
-    "note": "Emma Hybrid Comfort Twin XL: review sites quote $1,174 and $1,724, they disagree and Emma's list prices are permanently discounted, so not used",
-    "checked": "2026-11-15"
+    "retail_price": 1724.0,
+    "product": "Emma Hybrid Comfort mattress, Twin XL",
+    "source": "Emma Canada list price, as reported by Made in CA",
+    "url": "https://madeinca.ca/?p=16228",
+    "basis": "regular",
+    "checked": "2026-11-15",
+    "note": "Three Canadian review sites report Emma's Twin XL list price as $1,724, $1,174 and $1,151; the highest is used. Emma sells at about half its list price most of the time."
   },
   "1476828964578681": {
-    "status": "not_found",
-    "note": "De'Longhi ceramic tower heater: listing gives no model number",
-    "checked": "2026-11-15"
+    "retail_price": 144.99,
+    "product": "De'Longhi 1500W ceramic tower heater, HFX26S15GCA",
+    "source": "RONA",
+    "url": "https://www.rona.ca/en/product/delonghi-1500w-23-in-black-ceramic-tower-heater-with-remote-hfx26s15gca-30105003",
+    "basis": "regular",
+    "checked": "2026-11-15",
+    "note": "The listing gives no model number; this is the closest match to the box in the photo (black tower, motorized oscillation, ECO function, 3-year warranty)."
   },
   "1892103009078665": {
-    "status": "not_found",
-    "note": "Hoover cordless stick vacuum: listing gives no model number",
-    "checked": "2026-11-15"
+    "retail_price": 199.99,
+    "product": "Hoover Cordless Stick Vacuum, BH60000CA",
+    "source": "Staples Canada",
+    "url": "https://www.staples.ca/products/3166623-en-hoover-bh60000ca-cordless-stick-vacuum-lightweight-blackgrey",
+    "basis": "regular",
+    "checked": "2026-11-15",
+    "note": "Matched from the box in the listing photo: LED display, up to 40 minutes, converts to a hand vacuum, 2-year warranty. Canadian Tire's $299.99 Hoover Pet Cordless Stick is a different (Pet) version and was not used."
   },
   "1093337840118530": {
     "status": "not_found",
-    "note": "Steelite DG010-1 leaf blower: not searched to a result",
+    "note": "Steelite DG010-1 leaf blower: Best Buy Canada marketplace lists it without a visible price; no other Canadian listing found.",
     "checked": "2026-11-15"
   }
 }

@@ -20,8 +20,8 @@
 <meta name="twitter:card" content="summary_large_image">
 {% if page.price %}<meta property="product:price:amount" content="{{ page.price }}">
 <meta property="product:price:currency" content="{{ site.currency }}">{% endif %}
-<link rel="icon" href="{{ p }}/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="{{ p }}/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="{{ p }}/assets/favicon-48.png" sizes="48x48" type="image/png">
 <link rel="apple-touch-icon" href="{{ p }}/assets/apple-touch-icon.png">
 <link rel="manifest" href="{{ p }}/site.webmanifest">
 <link rel="alternate" type="application/atom+xml" title="{{ site.name }} new listings" href="{{ p }}/feed.xml">
@@ -35,7 +35,7 @@
 <body{% if page.has_bar %} class="has-bar"{% endif %}>
 <a class="skip" href="#main">Skip to content</a>
 <header class="wrap top">
-  <a class="brand" href="{{ p }}/" aria-label="{{ site.name }} home">{% include "_mark.svg" %}<span>{{ site.name }}</span></a>
+  <a class="brand" href="{{ p }}/" aria-label="{{ site.name }} home"><img src="{{ p }}/assets/logo.png" alt="{{ site.name }}" width="{{ logo.width }}" height="{{ logo.height }}"></a>
   <nav class="talk" aria-label="Message {{ site.owner_first_name }}">
     <a class="chan chan-m" href="{{ site.messenger_url }}" target="_blank" rel="noopener">{% include "_icon_messenger.svg" %}Messenger</a>
     <a class="chan chan-w" href="{{ wa_general }}" target="_blank" rel="noopener">{% include "_icon_whatsapp.svg" %}WhatsApp</a>
@@ -46,7 +46,7 @@
 </main>
 <footer class="foot">
   <div class="wrap">
-    <a class="brand" href="{{ p }}/">{% include "_mark.svg" %}<span>{{ site.name }}</span></a>
+    <a class="brand" href="{{ p }}/"><img src="{{ p }}/assets/logo.png" alt="{{ site.name }}" width="{{ logo.width }}" height="{{ logo.height }}"></a>
     <p>New and open-box electronics, appliances and home goods at liquidation prices. Run by {{ site.owner }} in {{ site.city }}, {{ site.region_name }}. Pickup around {{ site.pickup_area }}.</p>
     <p>Serving {{ site.areas_served|join(", ") }} and the rest of the Greater Toronto Area.</p>
     <ul>
@@ -55,7 +55,7 @@
       <li><a href="{{ site.marketplace_profile_url }}" target="_blank" rel="noopener">Facebook Marketplace</a></li>
       <li><a href="{{ p }}/inventory.json">Inventory data</a></li>
     </ul>
-    <p class="fine">{{ site.legal_line }}. Stock last checked <time datetime="{{ updated_iso }}">{{ updated_human }}</time>.</p>
+    <p class="fine">{{ site.name }}. Stock last checked <time datetime="{{ updated_iso }}">{{ updated_human }}</time>.</p>
   </div>
 </footer>
 </body>

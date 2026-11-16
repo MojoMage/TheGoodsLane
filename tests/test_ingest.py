@@ -232,3 +232,14 @@ def test_apply_puts_new_retail_prices_on_an_existing_snapshot(pull):
     l = snap["listings"][1]
     assert l["msrp"] == 499.99 and l["discount_pct"] == 50 and l["retail_source"] == "Ecovacs Canada"
     assert retail.apply(snap, {}) == 0 and l["msrp"] is None and l["retail_source"] is None, "a removed price disappears"
+
+
+def test_company_name_never_reaches_the_site_data(pull):
+    import hashlib
+    item = pull["listings"][0]
+    item["description"] += "\n\nThe Goods Lane by Abbottcom\nQuality products at great prices!"
+    item["description_sha256"] = hashlib.sha256(item["description"].encode("utf-8")).hexdigest()
+    item["title"] += " – The Goods Lane by Abbottcom"
+    l = run(pull)[0]["listings"][0]
+    blob = json.dumps(l).lower()
+    assert "abbott" not in blob and "The Goods Lane\nQuality products at great prices!" in l["description"]

@@ -2,46 +2,48 @@
 
     python build/make_brand_assets.py
 
-The wordmark is converted to outlines so the logo never depends on installed fonts.
+The logo is the artwork supplied by the business (build/brand/logo-source.jpg): a stacked
+wordmark over a rule. It is used as supplied; this script only cuts it out of its
+background (so it sits on any page colour) and sizes it for the header, the browser and
+phone icons and the social share card.
 Fonts are Latin subsets of Inter (SIL Open Font License), self-hosted so the site
 makes no third-party requests.
 """
-import subprocess
 from pathlib import Path
 
+import numpy as np
 from fontTools import subset
-from fontTools.pens.svgPathPen import SVGPathPen
-from fontTools.pens.transformPen import TransformPen
-from fontTools.ttLib import TTFont
+from PIL import Image
 
-STATIC = Path(__file__).resolve().parent / "static"
+HERE = Path(__file__).resolve().parent
+STATIC = HERE / "static"
+SOURCE = HERE / "brand" / "logo-source.jpg"
 FONTS = Path("/usr/share/fonts/opentype/inter")
-INK, PAPER, SAGE, MIST, BLUSH, OAT = "#1F2328", "#F7F6F3", "#DCE5DA", "#D9E3EA", "#EFDDD8", "#ECE6DA"
-
-# The mark: a lane running to the horizon, drawn with three strokes on a soft sage tile.
-MARK = f'''<rect width="64" height="64" rx="18" fill="{SAGE}"/>
-<path d="M19 48 28 16M45 48 36 16" fill="none" stroke="{INK}" stroke-width="2.6" stroke-linecap="round"/>
-<path d="M32 20v5M32 31v6M32 43v6" fill="none" stroke="{INK}" stroke-width="2.6" stroke-linecap="round"/>'''
 
 
-def outline(text, size, x, baseline, font_file="InterDisplay-Medium.otf", tracking=0.0):
-    font = TTFont(FONTS / font_file)
-    glyphs, cmap, hmtx = font.getGlyphSet(), font.getBestCmap(), font["hmtx"]
-    scale = size / font["head"].unitsPerEm
-    paths, cursor = [], x
-    for ch in text:
-        name = cmap[ord(ch)]
-        pen = SVGPathPen(glyphs)
-        glyphs[name].draw(TransformPen(pen, (scale, 0, 0, -scale, cursor, baseline)))
-        if pen.getCommands():
-            paths.append(pen.getCommands())
-        cursor += hmtx[name][0] * scale + tracking
-    return " ".join(paths), cursor
+def cut_out_logo():
+    """(the wordmark on a transparent background, cropped to the artwork; the artwork's own background colour)"""
+    rgb = Image.open(SOURCE).convert("RGB")
+    grey = np.asarray(rgb.convert("L")).astype(float)
+    background = tuple(int(v) for v in np.median(np.asarray(rgb)[:24, :24].reshape(-1, 3), axis=0))
+    paper = float(np.median(grey[:24, :24]))
+    ys, xs = np.where(grey < 128)
+    alpha = np.clip((paper - grey) / paper, 0, 1)
+    alpha[alpha < 0.08] = 0  # JPEG speckle in the background
+    rgba = np.zeros(grey.shape + (4,), np.uint8)
+    rgba[..., 3] = (alpha * 255).round()
+    pad = 2
+    logo = Image.fromarray(rgba, "RGBA").crop((xs.min() - pad, ys.min() - pad, xs.max() + 1 + pad, ys.max() + 1 + pad))
+    return logo, background
 
 
-def svg(w, h, body, title="The Goods Lane"):
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" '
-            f'role="img" aria-label="{title}"><title>{title}</title>{body}</svg>\n')
+def on_tile(logo, background, width, height, fill):
+    """The logo centred on an opaque tile; `fill` is the share of the shorter side it takes up."""
+    scale = min(width, height) * fill / max(logo.size)
+    art = logo.resize((max(1, round(logo.width * scale)), max(1, round(logo.height * scale))), Image.LANCZOS)
+    tile = Image.new("RGBA", (width, height), background + (255,))
+    tile.alpha_composite(art, ((width - art.width) // 2, (height - art.height) // 2))
+    return tile.convert("RGB")
 
 
 def make_font(src, out, family, weight_name):
@@ -57,25 +59,12 @@ def make_font(src, out, family, weight_name):
 
 def main():
     (STATIC / "fonts").mkdir(parents=True, exist_ok=True)
-    (STATIC / "mark.svg").write_text(svg(64, 64, MARK))
-    (STATIC / "favicon.svg").write_text(svg(64, 64, MARK))
-
-    d, end = outline("The Goods Lane", 34, 80, 44, tracking=-0.5)
-    (STATIC / "logo.svg").write_text(svg(round(end + 4), 64, MARK + f'<path d="{d}" fill="{INK}"/>'))
-
-    # Social share card, 1200x630: quiet paper background, wordmark, one line, four pastel tiles.
-    h1, _ = outline("The Goods Lane", 104, 90, 250, tracking=-2.5)
-    l1, _ = outline("New and open-box electronics and home goods", 44, 92, 334, "Inter-Regular.otf", -0.4)
-    l2, _ = outline("Mississauga and the Greater Toronto Area", 44, 92, 392, "Inter-Regular.otf", -0.4)
-    tiles = "".join(f'<rect x="{90 + i * 150}" y="470" width="126" height="70" rx="20" fill="{c}"/>'
-                    for i, c in enumerate([SAGE, MIST, BLUSH, OAT]))
-    og = (f'<rect width="1200" height="630" fill="{PAPER}"/><path d="{h1}" fill="{INK}"/>'
-          f'<path d="{l1} {l2}" fill="#5F656C"/>{tiles}')
-    (STATIC / "og-default.svg").write_text(svg(1200, 630, og))
-    for src, out, size in [("mark.svg", "favicon-32.png", 32), ("mark.svg", "apple-touch-icon.png", 180),
-                           ("mark.svg", "icon-512.png", 512), ("og-default.svg", "og-default.png", 1200)]:
-        subprocess.run(["rsvg-convert", "-w", str(size), str(STATIC / src), "-o", str(STATIC / out)], check=True)
-    (STATIC / "og-default.svg").unlink()
+    logo, background = cut_out_logo()
+    logo.save(STATIC / "logo.png", optimize=True)
+    for name, size, fill in [("favicon-32.png", 32, 0.92), ("favicon-48.png", 48, 0.9), ("apple-touch-icon.png", 180, 0.74),
+                             ("icon-192.png", 192, 0.74), ("icon-512.png", 512, 0.74)]:
+        on_tile(logo, background, size, size, fill).save(STATIC / name, optimize=True)
+    on_tile(logo, background, 1200, 630, 0.68).save(STATIC / "og-default.png", optimize=True)
 
     make_font("Inter-Regular.otf", "inter-regular.woff", "Inter", "Regular")
     make_font("Inter-SemiBold.otf", "inter-semibold.woff", "Inter", "SemiBold")
