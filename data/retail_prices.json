@@ -130,7 +130,7 @@
   "1792027652123038": {
     "status": "not_found",
     "checked": "2026-11-17",
-    "note": "Cosco Finale 2-in-1: every new price found is below the $90 asking price (US$54.99 at coscokids.com, US$49.97 at Walmart.com, roughly C$70 to C$77). No Canadian retailer price found; walmart.ca is blocked in Chrome. Cannot show a saving."
+    "note": "Cosco Finale 2-in-1: not sold at Walmart.ca, Amazon.ca or Costco.ca (searched in Chrome 2026-11-17; they carry the Topside booster and Scenera Next only). The only new prices are US: US$54.99 at coscokids.com and US$49.97 at Walmart.com, roughly C$70 to C$77, which is below the $90 asking price. Cannot show a saving."
   },
   "993072010507922": {
     "retail_price": 123.46,
@@ -180,6 +180,6 @@
   "1093337840118530": {
     "status": "not_found",
     "checked": "2026-11-17",
-    "note": "Steelite DG010-1 with one 4.0Ah battery: Amazon.ca's Steelite listing is unavailable with no price and Best Buy Canada's marketplace listing shows none. Only a US eBay price (US$69.90, was US$89.90)."
+    "note": "Steelite DG010-1 leaf blower with one 4.0Ah battery: not sold at Amazon.ca (Steelite snow blowers only), Walmart.ca or Costco.ca (searched in Chrome 2026-11-17). Only a US eBay price (US$69.90, was US$89.90)."
   }
 }
