@@ -101,14 +101,22 @@
     "note": "Regular price shown beside a C$313.49 sale price in the search-index copy of the store page; the model no longer shows a price on the live page."
   },
   "1743035326813240": {
-    "status": "not_found",
-    "note": "Deebot T10+: no Canadian price found (US list price US$949.99); Ecovacs Canada and Best Buy Canada show it without a price.",
-    "checked": "2026-11-15"
+    "retail_price": 378.96,
+    "product": "Ecovacs Deebot T10 Plus",
+    "source": "Amazon.ca",
+    "url": "https://www.amazon.ca/ECOVACS-T10-Auto-Empty-Avoidance-Oscillating/dp/B09ZTNNLV1",
+    "basis": "regular",
+    "checked": "2026-11-17",
+    "note": "Current Amazon.ca price in its search listing ($378.96; another listing $378.77). No Canadian launch or list price was found; the US list price was US$949.99."
   },
   "1441593824094441": {
-    "status": "not_found",
-    "note": "Ninja Deluxe Kitchen System (Costco item 2715291): Costco.ca and Best Buy Canada show no price; US prices only (US$299.99 list at Walmart.com).",
-    "checked": "2026-11-15"
+    "retail_price": 235.0,
+    "product": "Ninja Deluxe Kitchen System (2.6 L pitcher, 2.1 L processor, 710 ml cup, Auto-iQ)",
+    "source": "Amazon.ca",
+    "url": "https://www.amazon.ca/Ninja-Kitchen-Processor-Single-Serve-Programs/dp/B0D9MMXJGS",
+    "basis": "regular",
+    "checked": "2026-11-17",
+    "note": "Amazon.ca new price $235.00. Costco Canada's regular price is reported as $199.99 (sale $149.99); the higher figure is used."
   },
   "1849095959415056": {
     "retail_price": 319.0,
@@ -121,18 +129,26 @@
   },
   "1792027652123038": {
     "status": "not_found",
-    "note": "Cosco Finale 2-in-1: only US Walmart prices found (US$49.97).",
-    "checked": "2026-11-15"
+    "checked": "2026-11-17",
+    "note": "Cosco Finale 2-in-1: every new price found is below the $90 asking price (US$54.99 at coscokids.com, US$49.97 at Walmart.com, roughly C$70 to C$77). No Canadian retailer price found; walmart.ca is blocked in Chrome. Cannot show a saving."
   },
   "993072010507922": {
-    "status": "not_found",
-    "note": "Compost Genie 14L: only US prices found (US$79.99 to US$99.99).",
-    "checked": "2026-11-15"
+    "retail_price": 123.46,
+    "product": "Compost Genie kitchen compost bin, 3.6 gallon (14 L), stainless steel",
+    "source": "Amazon.ca",
+    "url": "https://www.amazon.ca/Compost-Genie-Stainless-Steel-Composting-Compostable/dp/B0CW6PHWTY",
+    "basis": "regular",
+    "checked": "2026-11-17",
+    "note": "Amazon.ca prices for the 3.6 gallon bin by colour: white $123.46, black $119.09, silver $75.20; the highest is used. A marketplace reseller's $298.64 listing was ignored as not a retail price. Amazon's pack has 8 bags and 4 filters; the listing has 40 bags and 1 filter."
   },
   "1636915607777200": {
-    "status": "not_found",
-    "note": "Emma Hybrid 22 Lite King: no retailer listing found for this model.",
-    "checked": "2026-11-15"
+    "retail_price": 499.0,
+    "product": "Emma Original Lite (Emma Hybrid 22 Lite), King",
+    "source": "Emma Canada",
+    "url": "https://emma-sleep.ca/products/emma-original-lite-a/california-king-72-x-84-size",
+    "basis": "regular",
+    "checked": "2026-11-17",
+    "note": "The law tag name 'Emma Hybrid 22 Lite' belongs to the Emma Original Lite (formerly Original II / CliMax Hybrid). Emma Canada's regular price on its California King page is $499 (sale $374); Emma prices King and California King the same."
   },
   "1125124120200319": {
     "retail_price": 1724.0,
@@ -163,7 +179,7 @@
   },
   "1093337840118530": {
     "status": "not_found",
-    "note": "Steelite DG010-1 leaf blower: Best Buy Canada marketplace lists it without a visible price; no other Canadian listing found.",
-    "checked": "2026-11-15"
+    "checked": "2026-11-17",
+    "note": "Steelite DG010-1 with one 4.0Ah battery: Amazon.ca's Steelite listing is unavailable with no price and Best Buy Canada's marketplace listing shows none. Only a US eBay price (US$69.90, was US$89.90)."
   }
 }

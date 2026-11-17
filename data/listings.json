@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-17T02:24:53+00:00",
-  "pulled_at": "2026-11-17T02:24:40.630Z",
+  "updated_at": "2026-11-17T15:41:09+00:00",
+  "pulled_at": "2026-11-17T15:40:07.968Z",
   "profile_url": "https://www.facebook.com/marketplace/profile/61577549634421/",
   "count": 22,
   "skipped": [],
@@ -30,7 +30,7 @@
       "hidden": false,
       "listed_at": "2026-11-14T14:14:26.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1647194386782124/1.jpg",
@@ -64,7 +64,7 @@
       "hidden": false,
       "listed_at": "2026-11-14T04:34:43.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/29604762245854972/1.jpg",
@@ -103,7 +103,7 @@
       "hidden": false,
       "listed_at": "2026-11-12T18:36:38.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1640103387606427/1.jpg",
@@ -142,7 +142,7 @@
       "hidden": false,
       "listed_at": "2026-11-11T20:13:27.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1476828964578681/1.jpg",
@@ -186,7 +186,7 @@
       "hidden": false,
       "listed_at": "2026-11-09T21:09:28.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/2212135199712429/1.jpg",
@@ -205,12 +205,12 @@
       "price": 160.0,
       "currency": "CAD",
       "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null,
+      "msrp": 235.0,
+      "discount_pct": 32,
+      "retail_source": "Amazon.ca",
+      "retail_url": "https://www.amazon.ca/Ninja-Kitchen-Processor-Single-Serve-Programs/dp/B0D9MMXJGS",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-17",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ninja",
@@ -220,7 +220,7 @@
       "hidden": false,
       "listed_at": "2026-11-06T00:41:43.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1441593824094441/1.jpg",
@@ -239,12 +239,12 @@
       "price": 60.0,
       "currency": "CAD",
       "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null,
+      "msrp": 123.46,
+      "discount_pct": 51,
+      "retail_source": "Amazon.ca",
+      "retail_url": "https://www.amazon.ca/Compost-Genie-Stainless-Steel-Composting-Compostable/dp/B0CW6PHWTY",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-17",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Compost Genie",
@@ -254,7 +254,7 @@
       "hidden": false,
       "listed_at": "2026-11-05T22:49:36.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/993072010507922/1.jpg",
@@ -308,7 +308,7 @@
       "hidden": false,
       "listed_at": "2026-11-04T21:36:42.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1602651931072047/1.jpg",
@@ -357,7 +357,7 @@
       "hidden": false,
       "listed_at": "2026-11-04T04:18:48.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/984841858011538/1.jpg",
@@ -396,7 +396,7 @@
       "hidden": false,
       "listed_at": "2026-11-04T04:12:20.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/2392643971271890/1.jpg",
@@ -430,7 +430,7 @@
       "hidden": false,
       "listed_at": "2026-11-02T19:10:42.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1849095959415056/1.jpg",
@@ -479,7 +479,7 @@
       "hidden": false,
       "listed_at": "2026-10-27T17:35:45.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1503712531593162/1.jpg",
@@ -513,7 +513,7 @@
       "hidden": false,
       "listed_at": "2026-10-23T02:47:38.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1752504019803373/1.jpg",
@@ -547,7 +547,7 @@
       "hidden": false,
       "listed_at": "2026-10-20T20:56:34.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1892103009078665/1.jpg",
@@ -591,7 +591,7 @@
       "hidden": false,
       "listed_at": "2026-10-09T16:53:46.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1093337840118530/1.jpg",
@@ -630,7 +630,7 @@
       "hidden": false,
       "listed_at": "2026-10-09T16:50:51.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1669557128017676/1.jpg",
@@ -654,12 +654,12 @@
       "price": 200.0,
       "currency": "CAD",
       "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null,
+      "msrp": 378.96,
+      "discount_pct": 47,
+      "retail_source": "Amazon.ca",
+      "retail_url": "https://www.amazon.ca/ECOVACS-T10-Auto-Empty-Avoidance-Oscillating/dp/B09ZTNNLV1",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-17",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -669,7 +669,7 @@
       "hidden": false,
       "listed_at": "2026-10-01T21:08:43.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1743035326813240/1.jpg",
@@ -718,7 +718,7 @@
       "hidden": false,
       "listed_at": "2026-09-29T23:37:46.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1814777619671191/1.jpg",
@@ -752,7 +752,7 @@
       "hidden": false,
       "listed_at": "2026-09-29T23:35:42.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1792027652123038/1.jpg",
@@ -786,7 +786,7 @@
       "hidden": false,
       "listed_at": "2026-09-29T23:34:21.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1125124120200319/1.jpg",
@@ -810,12 +810,12 @@
       "price": 250.0,
       "currency": "CAD",
       "previous_price": 400.0,
-      "msrp": null,
-      "discount_pct": null,
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null,
+      "msrp": 499.0,
+      "discount_pct": 50,
+      "retail_source": "Emma Canada",
+      "retail_url": "https://emma-sleep.ca/products/emma-original-lite-a/california-king-72-x-84-size",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-17",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Emma",
@@ -825,7 +825,7 @@
       "hidden": false,
       "listed_at": "2026-09-29T12:44:59.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1636915607777200/1.jpg",
@@ -864,7 +864,7 @@
       "hidden": false,
       "listed_at": "2026-09-21T07:26:44.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-17T02:24:53+00:00",
+      "last_seen": "2026-11-17T15:41:09+00:00",
       "photos": [
         {
           "file": "photos/1906899391029783/1.jpg",
