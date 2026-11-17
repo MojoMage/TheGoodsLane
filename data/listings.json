@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-15T15:18:14+00:00",
-  "pulled_at": "2026-11-15T15:17:41.406Z",
+  "updated_at": "2026-11-17T02:24:53+00:00",
+  "pulled_at": "2026-11-17T02:24:40.630Z",
   "profile_url": "https://www.facebook.com/marketplace/profile/61577549634421/",
   "count": 22,
   "skipped": [],
@@ -17,6 +17,10 @@
       "previous_price": null,
       "msrp": 999.99,
       "discount_pct": 60,
+      "retail_source": "Canadian Tire",
+      "retail_url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "De'Longhi",
@@ -26,18 +30,14 @@
       "hidden": false,
       "listed_at": "2026-11-14T14:14:26.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1647194386782124/1.jpg",
           "width": 960,
           "height": 720
         }
-      ],
-      "retail_source": "Canadian Tire",
-      "retail_url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "29604762245854972",
@@ -51,6 +51,10 @@
       "previous_price": null,
       "msrp": 999.99,
       "discount_pct": 60,
+      "retail_source": "Canadian Tire",
+      "retail_url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "De'Longhi",
@@ -60,7 +64,7 @@
       "hidden": false,
       "listed_at": "2026-11-14T04:34:43.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/29604762245854972/1.jpg",
@@ -72,11 +76,7 @@
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "Canadian Tire",
-      "retail_url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1640103387606427",
@@ -90,6 +90,10 @@
       "previous_price": null,
       "msrp": 1199.99,
       "discount_pct": 79,
+      "retail_source": "Ecovacs Canada",
+      "retail_url": "https://ecovacs.com/ca/deebot-robotic-vacuum-cleaner/deebot-n30pro-omni",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -99,7 +103,7 @@
       "hidden": false,
       "listed_at": "2026-11-12T18:36:38.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1640103387606427/1.jpg",
@@ -111,11 +115,7 @@
           "width": 960,
           "height": 480
         }
-      ],
-      "retail_source": "Ecovacs Canada",
-      "retail_url": "https://ecovacs.com/ca/deebot-robotic-vacuum-cleaner/deebot-n30pro-omni",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1476828964578681",
@@ -129,6 +129,10 @@
       "previous_price": null,
       "msrp": 144.99,
       "discount_pct": 59,
+      "retail_source": "RONA",
+      "retail_url": "https://www.rona.ca/en/product/delonghi-1500w-23-in-black-ceramic-tower-heater-with-remote-hfx26s15gca-30105003",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "De'Longhi",
@@ -138,7 +142,7 @@
       "hidden": false,
       "listed_at": "2026-11-11T20:13:27.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1476828964578681/1.jpg",
@@ -155,11 +159,7 @@
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "RONA",
-      "retail_url": "https://www.rona.ca/en/product/delonghi-1500w-23-in-black-ceramic-tower-heater-with-remote-hfx26s15gca-30105003",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "2212135199712429",
@@ -168,11 +168,15 @@
       "title": "De'Longhi Magnifica Start Automatic Espresso Coffee Machine – New open box",
       "facebook_title": "De'Longhi Magnifica Start Automatic Espresso Coffee Machine- New open box",
       "description": "Automatic espresso machine with LatteCrema Hot system. This black De'Longhi Magnifica Start model has a touch control panel for various coffee drinks including espresso, coffee, latte macchiato, and cappuccino. It is a bean-to-cup machine with an integrated milk carafe.",
-      "price": 340.0,
+      "price": 360.0,
       "currency": "CAD",
       "previous_price": 380.0,
       "msrp": 849.99,
-      "discount_pct": 60,
+      "discount_pct": 58,
+      "retail_source": "Consiglio's Kitchenware",
+      "retail_url": "https://consiglioskitchenware.com/products/delonghi-magnifica-start-lattecrema-espresso-machine-ecam22080b",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "De'Longhi",
@@ -182,18 +186,14 @@
       "hidden": false,
       "listed_at": "2026-11-09T21:09:28.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/2212135199712429/1.jpg",
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "Consiglio's Kitchenware",
-      "retail_url": "https://consiglioskitchenware.com/products/delonghi-magnifica-start-lattecrema-espresso-machine-ecam22080b",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1441593824094441",
@@ -207,6 +207,10 @@
       "previous_price": null,
       "msrp": null,
       "discount_pct": null,
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ninja",
@@ -216,18 +220,14 @@
       "hidden": false,
       "listed_at": "2026-11-06T00:41:43.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1441593824094441/1.jpg",
           "width": 960,
           "height": 870
         }
-      ],
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null
+      ]
     },
     {
       "id": "993072010507922",
@@ -241,6 +241,10 @@
       "previous_price": null,
       "msrp": null,
       "discount_pct": null,
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Compost Genie",
@@ -250,7 +254,7 @@
       "hidden": false,
       "listed_at": "2026-11-05T22:49:36.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/993072010507922/1.jpg",
@@ -277,11 +281,7 @@
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null
+      ]
     },
     {
       "id": "1602651931072047",
@@ -295,6 +295,10 @@
       "previous_price": null,
       "msrp": 159.99,
       "discount_pct": 47,
+      "retail_source": "Canadian Tire",
+      "retail_url": "https://www.canadiantire.ca/en/pdp/hoover-cleanslate-pet-plus-carpet-upholstery-corded-portable-spot-deep-cleaner-0437155p.html",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Hoover",
@@ -304,7 +308,7 @@
       "hidden": false,
       "listed_at": "2026-11-04T21:36:42.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1602651931072047/1.jpg",
@@ -326,11 +330,7 @@
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "Canadian Tire",
-      "retail_url": "https://www.canadiantire.ca/en/pdp/hoover-cleanslate-pet-plus-carpet-upholstery-corded-portable-spot-deep-cleaner-0437155p.html",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "984841858011538",
@@ -344,6 +344,10 @@
       "previous_price": 280.0,
       "msrp": 499.99,
       "discount_pct": 50,
+      "retail_source": "Ecovacs Canada",
+      "retail_url": "https://www.ecovacs.com/ca/shop/deebot-robotic-vacuum-cleaner",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -353,7 +357,7 @@
       "hidden": false,
       "listed_at": "2026-11-04T04:18:48.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/984841858011538/1.jpg",
@@ -365,11 +369,7 @@
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "Ecovacs Canada",
-      "retail_url": "https://www.ecovacs.com/ca/shop/deebot-robotic-vacuum-cleaner",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "2392643971271890",
@@ -383,6 +383,10 @@
       "previous_price": null,
       "msrp": 1999.99,
       "discount_pct": 87,
+      "retail_source": "Ecovacs Canada suggested retail price at launch, 2023",
+      "retail_url": "https://newswire.ca/news-releases/ecovacs-debuts-newly-designed-deebot-x2-omni-to-clean-every-square-inch-of-your-floors-813388991.html",
+      "retail_basis": "launch",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -392,18 +396,14 @@
       "hidden": false,
       "listed_at": "2026-11-04T04:12:20.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/2392643971271890/1.jpg",
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "Ecovacs Canada suggested retail price at launch, 2023",
-      "retail_url": "https://newswire.ca/news-releases/ecovacs-debuts-newly-designed-deebot-x2-omni-to-clean-every-square-inch-of-your-floors-813388991.html",
-      "retail_basis": "launch",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1849095959415056",
@@ -417,6 +417,10 @@
       "previous_price": null,
       "msrp": 319.0,
       "discount_pct": 47,
+      "retail_source": "Nespresso Canada",
+      "retail_url": "https://nespresso.com/ca/en/order/machines/original/citiz-platinum-stainless-steel-c-espresso-machine",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Nespresso",
@@ -426,7 +430,7 @@
       "hidden": false,
       "listed_at": "2026-11-02T19:10:42.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1849095959415056/1.jpg",
@@ -448,11 +452,7 @@
           "width": 960,
           "height": 720
         }
-      ],
-      "retail_source": "Nespresso Canada",
-      "retail_url": "https://nespresso.com/ca/en/order/machines/original/citiz-platinum-stainless-steel-c-espresso-machine",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1503712531593162",
@@ -466,6 +466,10 @@
       "previous_price": 480.0,
       "msrp": 999.99,
       "discount_pct": 60,
+      "retail_source": "Canadian Tire",
+      "retail_url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "De'Longhi",
@@ -475,18 +479,14 @@
       "hidden": false,
       "listed_at": "2026-10-27T17:35:45.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1503712531593162/1.jpg",
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "Canadian Tire",
-      "retail_url": "https://www.canadiantire.ca/en/pdp/delonghi-magnifica-evo-coffee-espresso-machine-with-automatic-milk-frother-0430120p.html",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1752504019803373",
@@ -500,6 +500,10 @@
       "previous_price": null,
       "msrp": 1999.99,
       "discount_pct": 87,
+      "retail_source": "Ecovacs Canada suggested retail price at launch, 2023",
+      "retail_url": "https://newswire.ca/news-releases/ecovacs-debuts-newly-designed-deebot-x2-omni-to-clean-every-square-inch-of-your-floors-813388991.html",
+      "retail_basis": "launch",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -509,18 +513,14 @@
       "hidden": false,
       "listed_at": "2026-10-23T02:47:38.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1752504019803373/1.jpg",
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "Ecovacs Canada suggested retail price at launch, 2023",
-      "retail_url": "https://newswire.ca/news-releases/ecovacs-debuts-newly-designed-deebot-x2-omni-to-clean-every-square-inch-of-your-floors-813388991.html",
-      "retail_basis": "launch",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1892103009078665",
@@ -534,6 +534,10 @@
       "previous_price": null,
       "msrp": 199.99,
       "discount_pct": 50,
+      "retail_source": "Staples Canada",
+      "retail_url": "https://www.staples.ca/products/3166623-en-hoover-bh60000ca-cordless-stick-vacuum-lightweight-blackgrey",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Hoover",
@@ -543,7 +547,7 @@
       "hidden": false,
       "listed_at": "2026-10-20T20:56:34.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1892103009078665/1.jpg",
@@ -560,11 +564,7 @@
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "Staples Canada",
-      "retail_url": "https://www.staples.ca/products/3166623-en-hoover-bh60000ca-cordless-stick-vacuum-lightweight-blackgrey",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1093337840118530",
@@ -578,6 +578,10 @@
       "previous_price": null,
       "msrp": null,
       "discount_pct": null,
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Steelite",
@@ -587,7 +591,7 @@
       "hidden": false,
       "listed_at": "2026-10-09T16:53:46.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1093337840118530/1.jpg",
@@ -599,11 +603,7 @@
           "width": 960,
           "height": 720
         }
-      ],
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null
+      ]
     },
     {
       "id": "1669557128017676",
@@ -617,6 +617,10 @@
       "previous_price": null,
       "msrp": 209.0,
       "discount_pct": 14,
+      "retail_source": "RONA",
+      "retail_url": "https://rona.ca/en/product/litheli-u20-brushless-leaf-blower-u20br00-0a220-332042542",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Litheli",
@@ -626,7 +630,7 @@
       "hidden": false,
       "listed_at": "2026-10-09T16:50:51.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1669557128017676/1.jpg",
@@ -638,11 +642,7 @@
           "width": 960,
           "height": 720
         }
-      ],
-      "retail_source": "RONA",
-      "retail_url": "https://rona.ca/en/product/litheli-u20-brushless-leaf-blower-u20br00-0a220-332042542",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1743035326813240",
@@ -656,6 +656,10 @@
       "previous_price": null,
       "msrp": null,
       "discount_pct": null,
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -665,7 +669,7 @@
       "hidden": false,
       "listed_at": "2026-10-01T21:08:43.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1743035326813240/1.jpg",
@@ -687,11 +691,7 @@
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null
+      ]
     },
     {
       "id": "1814777619671191",
@@ -705,6 +705,10 @@
       "previous_price": 300.0,
       "msrp": 1799.99,
       "discount_pct": 84,
+      "retail_source": "Best Buy Canada price at launch, 2023",
+      "retail_url": "https://www.bestbuy.ca/en-ca/product/ecovacs-deebot-t20-omni-robot-vacuum-mop-white/17146800",
+      "retail_basis": "launch",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -714,18 +718,14 @@
       "hidden": false,
       "listed_at": "2026-09-29T23:37:46.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1814777619671191/1.jpg",
           "width": 960,
           "height": 960
         }
-      ],
-      "retail_source": "Best Buy Canada price at launch, 2023",
-      "retail_url": "https://www.bestbuy.ca/en-ca/product/ecovacs-deebot-t20-omni-robot-vacuum-mop-white/17146800",
-      "retail_basis": "launch",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1792027652123038",
@@ -739,6 +739,10 @@
       "previous_price": null,
       "msrp": null,
       "discount_pct": null,
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Cosco",
@@ -748,18 +752,14 @@
       "hidden": false,
       "listed_at": "2026-09-29T23:35:42.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1792027652123038/1.jpg",
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null
+      ]
     },
     {
       "id": "1125124120200319",
@@ -773,6 +773,10 @@
       "previous_price": null,
       "msrp": 1724.0,
       "discount_pct": 87,
+      "retail_source": "Emma Canada list price, as reported by Made in CA",
+      "retail_url": "https://madeinca.ca/?p=16228",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-15",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Emma",
@@ -782,7 +786,7 @@
       "hidden": false,
       "listed_at": "2026-09-29T23:34:21.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1125124120200319/1.jpg",
@@ -794,11 +798,7 @@
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "Emma Canada list price, as reported by Made in CA",
-      "retail_url": "https://madeinca.ca/?p=16228",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-15"
+      ]
     },
     {
       "id": "1636915607777200",
@@ -812,6 +812,10 @@
       "previous_price": 400.0,
       "msrp": null,
       "discount_pct": null,
+      "retail_source": null,
+      "retail_url": null,
+      "retail_basis": null,
+      "retail_checked": null,
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Emma",
@@ -821,7 +825,7 @@
       "hidden": false,
       "listed_at": "2026-09-29T12:44:59.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1636915607777200/1.jpg",
@@ -833,11 +837,7 @@
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null
+      ]
     },
     {
       "id": "1906899391029783",
@@ -851,6 +851,10 @@
       "previous_price": 300.0,
       "msrp": 1699.99,
       "discount_pct": 84,
+      "retail_source": "Ecovacs Canada (T30S Combo price)",
+      "retail_url": "https://ecovacs.com/ca/deebot-robotic-vacuum-cleaner/deebot-t30s-combo",
+      "retail_basis": "regular",
+      "retail_checked": "2026-11-16",
       "condition": "New",
       "location": "Mississauga, ON",
       "brand": "Ecovacs",
@@ -860,18 +864,14 @@
       "hidden": false,
       "listed_at": "2026-09-21T07:26:44.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-15T15:18:14+00:00",
+      "last_seen": "2026-11-17T02:24:53+00:00",
       "photos": [
         {
           "file": "photos/1906899391029783/1.jpg",
           "width": 720,
           "height": 960
         }
-      ],
-      "retail_source": "Ecovacs Canada (T30S Combo price)",
-      "retail_url": "https://ecovacs.com/ca/deebot-robotic-vacuum-cleaner/deebot-t30s-combo",
-      "retail_basis": "regular",
-      "retail_checked": "2026-11-16"
+      ]
     }
   ]
 }
