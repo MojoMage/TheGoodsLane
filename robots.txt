@@ -47,4 +47,4 @@ Allow: /
 User-agent: DuckAssistBot
 Allow: /
 
-Sitemap: https://mojomage.github.io/TheGoodsLane/sitemap.xml
+Sitemap: https://thegoodslane.com/sitemap.xml
