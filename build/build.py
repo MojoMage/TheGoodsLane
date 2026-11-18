@@ -88,7 +88,7 @@ def business_jsonld(site: dict, base: str) -> dict:
         "@context": "https://schema.org", "@type": "Store", "@id": f"{base}/#business",
         "name": site["name"], "description": site["description"],
         "url": f"{base}/", "logo": f"{base}/assets/icon-512.png", "image": f"{base}/assets/og-default.png",
-        "telephone": site["phone_e164"], "priceRange": "$", "currenciesAccepted": site["currency"],
+        "priceRange": "$", "currenciesAccepted": site["currency"],
         "founder": {"@type": "Person", "name": site["owner"]},
         "address": {"@type": "PostalAddress", "addressLocality": site["city"], "addressRegion": site["region"],
                     "addressCountry": site["country"]},
@@ -98,7 +98,7 @@ def business_jsonld(site: dict, base: str) -> dict:
         "contactPoint": [
             {"@type": "ContactPoint", "contactType": "sales", "name": "Facebook Messenger", "url": site["messenger_url"],
              "availableLanguage": "English"},
-            {"@type": "ContactPoint", "contactType": "sales", "name": "WhatsApp", "telephone": site["phone_e164"],
+            {"@type": "ContactPoint", "contactType": "sales", "name": "WhatsApp",
              "url": f"https://wa.me/{site['whatsapp_number']}"},
         ],
     }
@@ -164,8 +164,7 @@ def faq_for(site: dict) -> list[dict]:
          "a": f"Yes. Delivery is available at a reasonable charge on many items. Message {first} with your location "
               "for a quote, or pick up in person."},
         {"q": "How do I buy something?",
-         "a": f"Open the item and message {site['owner']} on Messenger or WhatsApp, whichever you use. You can also "
-              f"text {site['phone_display']}."},
+         "a": f"Open the item and message {site['owner']} on Messenger or WhatsApp, whichever you use."},
         {"q": "How are the savings worked out?",
          "a": "The crossed-out price is what the same model costs brand new in Canada, taken from a Canadian retailer "
               "or the manufacturer and named on the item's page. Where shops differ we compare against the highest regular "
@@ -321,8 +320,7 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
         "business": site["name"], "seller": site["owner"], "location": f"{site['city']}, {site['region']}, Canada",
         "pickup_area": site["pickup_area"], "areas_served": site["areas_served"], "updated_at": updated.isoformat(),
         "count": len(public),
-        "contact": {"messenger": site["messenger_url"], "whatsapp": f"https://wa.me/{site['whatsapp_number']}",
-                    "phone": site["phone_e164"]},
+        "contact": {"messenger": site["messenger_url"], "whatsapp": f"https://wa.me/{site['whatsapp_number']}"},
         "listings": public}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     def md_line(l):
@@ -336,8 +334,8 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
             f"- Location: {site['city']}, {site['region_name']}, Canada. Pickup around {site['pickup_area']}.\n"
             f"- Delivery: available across the Greater Toronto Area at a reasonable charge; ask for a quote.\n"
             f"- Serves: {', '.join(site['areas_served'])} and the rest of the Greater Toronto Area\n"
-            f"- Contact: Facebook Messenger {site['messenger_url']} or WhatsApp/text {site['phone_e164']} "
-            f"(https://wa.me/{site['whatsapp_number']})\n"
+            f"- Contact: Facebook Messenger {site['messenger_url']} or WhatsApp "
+            f"https://wa.me/{site['whatsapp_number']}\n"
             f"- Stock last checked: {lastmod} (checked daily; items are limited stock and sell quickly)\n"
             f"- Prices are in Canadian dollars.\n\n")
     (out / "llms.txt").write_text(

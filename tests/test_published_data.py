@@ -73,3 +73,13 @@ def test_company_name_is_nowhere_in_the_project():
         if "abbott" in text.lower():
             hits.append(name)
     assert hits == []
+
+
+def test_no_phone_number_in_the_published_listing_text_or_config():
+    import re
+    root = Path(__file__).resolve().parent.parent
+    for l in snapshot()["listings"]:
+        for key in ("title", "facebook_title", "description"):
+            assert not re.search(r"\d{3}[\s.\-]\d{3}[\s.\-]\d{4}", l[key]), (l["id"], key)
+    config = json.loads((root / "site.config.json").read_text(encoding="utf-8"))
+    assert "phone_display" not in config and "phone_e164" not in config

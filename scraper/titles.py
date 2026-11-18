@@ -71,6 +71,23 @@ def drop_company_name(text: str) -> str:
     return _COMPANY_TAG.sub("", text or "")
 
 
+# The seller's phone number is not published: buyers reach him through the Messenger and
+# WhatsApp buttons. Listing text often carries a "Call/Text Ali: 647-..." line.
+_PHONE = re.compile(r"(?<![\d$.])(?:\+?1[\s.\-]?)?\(?\d{3}\)?[\s.\-]\d{3}[\s.\-]\d{4}(?!\d)")
+_CONTACT_WORD = re.compile(r"call|text|phone|whats\s?app|contact|tel\b|\u260e|\U0001F4DE|\U0001F4F1", re.I)
+
+
+def drop_phone_numbers(text: str) -> str:
+    lines = []
+    for line in (text or "").split("\n"):
+        if _PHONE.search(line):
+            if _CONTACT_WORD.search(line):
+                continue  # a "call or text me" line: nothing left worth keeping
+            line = _PHONE.sub("", line).rstrip()
+        lines.append(line)
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(lines))
+
+
 def plain_text(text: str, limit: int | None = None) -> str:
     """Description as one clean line (for meta descriptions and feeds)."""
     text = re.sub(r"\s+", " ", strip_symbols(text or "")).strip()

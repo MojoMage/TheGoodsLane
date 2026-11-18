@@ -53,3 +53,15 @@ def test_plain_text_makes_one_clean_line():
 def test_company_name_is_dropped_from_listing_text(raw, clean):
     from scraper.titles import drop_company_name
     assert drop_company_name(raw) == clean
+
+
+@pytest.mark.parametrize("raw,clean", [
+    ("Pickup: Matheson Blvd E\n\n📞 Call/Text Ali: 647-770-6652\n\n🚚 Delivery available", "Pickup: Matheson Blvd E\n\n🚚 Delivery available"),
+    ("WhatsApp +1 (647) 770-6652 anytime", ""),
+    ("Great vacuum 647.770.6652 works well", "Great vacuum works well".replace("vacuum works", "vacuum  works")),
+    ("Model EMAHL193203CAA, 1500W, $1,200-1,500 retail", "Model EMAHL193203CAA, 1500W, $1,200-1,500 retail"),
+    ("Item 3826302 | 120 MPH | 2026-11-17", "Item 3826302 | 120 MPH | 2026-11-17"),
+])
+def test_phone_numbers_are_dropped_from_listing_text(raw, clean):
+    from scraper.titles import drop_phone_numbers
+    assert drop_phone_numbers(raw) == clean

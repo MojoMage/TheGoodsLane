@@ -68,7 +68,7 @@ def test_home_is_mobile_first_local_and_says_new_not_used(built):
 def test_local_business_structured_data(built):
     blocks = jsonld(soup(built["out"] / "index.html"))
     store = next(b for b in blocks if b["@type"] == "Store")
-    assert store["name"] == "The Goods Lane" and store["telephone"] == "+16477706652"
+    assert store["name"] == "The Goods Lane" and "telephone" not in json.dumps(store)
     assert store["address"] == {"@type": "PostalAddress", "addressLocality": "Mississauga", "addressRegion": "ON",
                                 "addressCountry": "CA"}
     assert {"Mississauga", "Toronto", "Brampton", "Greater Toronto Area"} <= {a["name"] for a in store["areaServed"]}
@@ -165,7 +165,7 @@ def test_robots_welcomes_search_and_ai_crawlers(built):
 
 def test_agent_readable_inventory(built):
     llms = (built["out"] / "llms.txt").read_text()
-    assert llms.startswith("# The Goods Lane") and "Mississauga" in llms and "+16477706652" in llms
+    assert llms.startswith("# The Goods Lane") and "Mississauga" in llms and "https://wa.me/16477706652" in llms
     assert llms.count(f"]({BASE}/item/") == 4 and "(was $280)" in llms and "Condition: New" in llms
     assert "Long text. Long text." in (built["out"] / "llms-full.txt").read_text()
     inv = json.loads((built["out"] / "inventory.json").read_text())
@@ -257,3 +257,17 @@ def test_logo_is_the_supplied_wordmark_and_no_company_name_is_published(built):
     for f in out.rglob("*"):
         if f.suffix in {".html", ".json", ".txt", ".xml", ".webmanifest"}:
             assert "abbott" not in f.read_text(encoding="utf-8").lower(), f
+
+
+def test_phone_number_is_not_published_outside_the_whatsapp_link(built):
+    out = built["out"]
+    for f in out.rglob("*"):
+        if f.suffix not in {".html", ".json", ".txt", ".xml", ".webmanifest"}:
+            continue
+        text = f.read_text(encoding="utf-8").replace("wa.me/16477706652", "wa.me/NUMBER")
+        assert not re.search(r"647\D{0,3}770\D{0,3}6652", text), f
+        assert "telephone" not in text and "tel:" not in text, f
+    inv = json.loads((out / "inventory.json").read_text())
+    assert set(inv["contact"]) == {"messenger", "whatsapp"}
+    for page in [out / "index.html", *item_pages(built)]:
+        assert not re.search(r"\d{3}-\d{3}-\d{4}", soup(page).get_text()), page
