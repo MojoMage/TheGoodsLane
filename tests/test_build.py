@@ -271,3 +271,21 @@ def test_phone_number_is_not_published_outside_the_whatsapp_link(built):
     assert set(inv["contact"]) == {"messenger", "whatsapp"}
     for page in [out / "index.html", *item_pages(built)]:
         assert not re.search(r"\d{3}-\d{3}-\d{4}", soup(page).get_text()), page
+
+
+def test_custom_domain_build_serves_from_the_root_and_keeps_the_domain_file(built, tmp_path):
+    out = tmp_path / "custom"
+    site_build.build(out, "https://thegoodslane.com", built["data"])
+    assert (out / "CNAME").read_text() == "thegoodslane.com"
+    home = soup(out / "index.html")
+    card = home.select_one("a[href^='/item/']")
+    assert card is not None and not home.select("[href^='/TheGoodsLane'], [src^='/TheGoodsLane']")
+    assert home.select_one("link[rel=canonical]")["href"] == "https://thegoodslane.com/"
+    assert "Sitemap: https://thegoodslane.com/sitemap.xml" in (out / "robots.txt").read_text()
+    # the free github.io address needs no domain file
+    assert not (built["out"] / "CNAME").exists()
+
+
+def test_the_published_site_address_is_the_custom_domain():
+    config = json.loads((site_build.ROOT / "site.config.json").read_text(encoding="utf-8"))
+    assert config["base_url"] == "https://thegoodslane.com"

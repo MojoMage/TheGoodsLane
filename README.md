@@ -4,7 +4,8 @@ Website for The Goods Lane (Ali Abbas, Mississauga): new and open-box electronic
 home goods at liquidation prices. The site mirrors his Facebook Marketplace listings and
 is refreshed once a day.
 
-Live site: https://mojomage.github.io/TheGoodsLane/
+Live site: https://thegoodslane.com/ (GitHub Pages with a custom domain; the old
+address https://mojomage.github.io/TheGoodsLane/ redirects to it)
 
 ## How it works
 

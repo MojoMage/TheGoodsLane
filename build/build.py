@@ -195,6 +195,11 @@ def build(out: Path, base_url: str | None = None, data_dir: Path | None = None, 
     (out / "assets").mkdir(parents=True)
     shutil.copytree(HERE / "static", out / "assets", dirs_exist_ok=True)
     (out / ".nojekyll").write_text("")
+    # GitHub Pages reads the custom domain from this file. Publishing replaces the whole
+    # branch, so without it every publish would drop the domain.
+    host = urlparse(base).netloc
+    if host and not host.endswith(".github.io"):
+        (out / "CNAME").write_text(host)
 
     wa_base = f"https://wa.me/{site['whatsapp_number']}?text="
     first = site["owner_first_name"]

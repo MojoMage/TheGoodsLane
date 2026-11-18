@@ -78,7 +78,7 @@ download location is set to it), and push access to `MojoMage/TheGoodsLane`.
     `curl -s https://api.github.com/repos/MojoMage/TheGoodsLane/deployments?per_page=1`
     (newest deployment is for the commit just pushed) and its `statuses_url` (state
     `success`). If a browser or web fetch can open
-    `https://mojomage.github.io/TheGoodsLane/inventory.json`, also check `count` and
+    `https://thegoodslane.com/inventory.json`, also check `count` and
     `updated_at` there.
 
 12. **Report** in a few lines: listings and photos pulled, what was added or sold since
