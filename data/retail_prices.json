@@ -181,5 +181,14 @@
     "status": "not_found",
     "checked": "2026-11-17",
     "note": "Steelite DG010-1 leaf blower with one 4.0Ah battery: not sold at Amazon.ca (Steelite snow blowers only), Walmart.ca or Costco.ca (searched in Chrome 2026-11-17). Only a US eBay price (US$69.90, was US$89.90)."
+  },
+  "29696619303263642": {
+    "retail_price": 999.99,
+    "product": "De'Longhi Magnifica Evo with LatteCrema System, ECAM29084SB",
+    "source": "Espresso Planet",
+    "url": "https://www.espressoplanet.com/products/delonghi-magnifica-evo-with-lattecrema-milk-carafe-super-automatic-espresso-machine-ecam29084sb",
+    "basis": "regular",
+    "checked": "2026-11-18",
+    "note": "Box photo reads Magnifica Evo with LatteCrema System, silver/black. Espresso Planet lists $999.99 regular ($599.99 sale); Consiglio's lists $1,000.00 regular ($599.99 sale). Canadian Tire ($999.99 on 2026-11-15, same product on a previous listing) and Best Buy pages showed no price to the fetcher today."
   }
 }
