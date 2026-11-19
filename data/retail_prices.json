@@ -190,5 +190,24 @@
     "basis": "regular",
     "checked": "2026-11-18",
     "note": "Box photo reads Magnifica Evo with LatteCrema System, silver/black. Espresso Planet lists $999.99 regular ($599.99 sale); Consiglio's lists $1,000.00 regular ($599.99 sale). Canadian Tire ($999.99 on 2026-11-15, same product on a previous listing) and Best Buy pages showed no price to the fetcher today."
+  },
+  "1752389633186238": {
+    "retail_price": 1799.99,
+    "product": "Ecovacs Deebot T20 Omni (also sold as TEO Omni)",
+    "source": "Best Buy Canada price at launch, 2023",
+    "url": "https://www.bestbuy.ca/en-ca/product/ecovacs-deebot-t20-omni-robot-vacuum-mop-white/17146800",
+    "basis": "launch",
+    "checked": "2026-11-19",
+    "note": "Box in the listing photo reads 'DEEBOT TEO OMNI' (hot water mop washing, OZMO Turbo 2.0, 6000Pa), the same model as listing 1814777619671191; its price is reused. Launched in Canada June 2023 at $1,799 CDN; Best Buy Canada listed it at $1,799.99. The description's 'T10 Omni' is taken as a typo."
+  },
+  "2332150594232282": {
+    "status": "not_found",
+    "note": "Boxes in the photo are bilingual Costco Canada packs (ITM/ART 2675802) labelled 'Shark Cordless Pro Pet Plus' with Clean Sense IQ and MultiFLEX. No Canadian regular price was found for that exact pack: Costco.ca same-day page could not be read, Best Buy Canada's Cordless Pro page showed no price, and the only Costco prices seen ($279.99, $249.99) were US. Canadian Tire lists the IZ562HC 'AI Pet Plus' at $499.99 (via pricedropper.ca) but it could not be confirmed as the same model.",
+    "checked": "2026-11-19"
+  },
+  "29742046192069408": {
+    "status": "not_found",
+    "note": "Listed as 'Cordless Pro Plus' but uses the same photo of 'Cordless Pro Pet Plus' boxes. Boxes in the photo are bilingual Costco Canada packs (ITM/ART 2675802) labelled 'Shark Cordless Pro Pet Plus' with Clean Sense IQ and MultiFLEX. No Canadian regular price was found for that exact pack: Costco.ca same-day page could not be read, Best Buy Canada's Cordless Pro page showed no price, and the only Costco prices seen ($279.99, $249.99) were US. Canadian Tire lists the IZ562HC 'AI Pet Plus' at $499.99 (via pricedropper.ca) but it could not be confirmed as the same model.",
+    "checked": "2026-11-19"
   }
 }
