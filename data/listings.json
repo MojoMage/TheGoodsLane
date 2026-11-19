@@ -1,49 +1,10 @@
 {
-  "updated_at": "2026-11-19T14:26:21+00:00",
-  "pulled_at": "2026-11-19T14:26:05.872Z",
+  "updated_at": "2026-11-19T21:29:42+00:00",
+  "pulled_at": "2026-11-19T21:29:30.188Z",
   "profile_url": "https://www.facebook.com/marketplace/profile/61577549634421/",
-  "count": 25,
+  "count": 24,
   "skipped": [],
   "listings": [
-    {
-      "id": "29742046192069408",
-      "slug": "shark-cordless-pro-plus-vacuum-refurbished-29742046192069408",
-      "url": "https://www.facebook.com/marketplace/item/29742046192069408/",
-      "title": "Shark Cordless Pro Plus Vacuum – Refurbished",
-      "facebook_title": "🔥 SHARK CORDLESS PRO PLUS VACUUM – REFURBISHED 🔥\n🔥10 days replacement warranty in case of fault",
-      "description": "Looking for powerful cleaning performance without the hassle of cords? Get your hands on the Shark Cordless Pro Plus! 💥\n\n✨ Features:\n✅ Powerful cordless suction for everyday cleaning\n✅ Clean Sense IQ – automatically detects dirt and adjusts suction power\n✅ Up to 40 minutes of runtime\n✅ PowerFins Plus for continuous dirt and debris pickup\n✅ Self-cleaning brushroll – helps prevent hair wrap\n✅ MultiFLEX wand – bends to reach under furniture and makes storage easier\n✅ Anti-allergen sealed system with HEPA filtration\n✅ Lightweight and convenient cordless design\n✅ Great for carpets, rugs and hard floors\n\n💰 Great price – excellent value!\n\n📦 Refurbished units\n\n🛡️ 10 Days Replacement Warranty in case of any fault\n\n📍 Pickup in Mississauga\n🚚 Delivery available at reasonable charges\n\n📩 Message me if interested – first come, first served!\n\nThe Goods Lane 🛍️",
-      "price": 145.0,
-      "currency": "CAD",
-      "previous_price": null,
-      "msrp": null,
-      "discount_pct": null,
-      "retail_source": null,
-      "retail_url": null,
-      "retail_basis": null,
-      "retail_checked": null,
-      "condition": "New",
-      "location": "Mississauga, ON",
-      "brand": "Shark",
-      "category": "floor-care",
-      "category_name": "Robot vacuums and floor care",
-      "status": "available",
-      "hidden": false,
-      "listed_at": "2026-11-19T04:49:30.000Z",
-      "first_seen": "2026-11-19T14:26:21+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
-      "photos": [
-        {
-          "file": "photos/29742046192069408/1.jpg",
-          "width": 720,
-          "height": 960
-        },
-        {
-          "file": "photos/29742046192069408/2.jpg",
-          "width": 720,
-          "height": 960
-        }
-      ]
-    },
     {
       "id": "1752389633186238",
       "slug": "ecovacs-deebot-teo-t20-omni-floor-cleaning-robot-vacuum-1752389633186238",
@@ -69,7 +30,7 @@
       "hidden": false,
       "listed_at": "2026-11-18T22:17:07.000Z",
       "first_seen": "2026-11-19T14:26:21+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1752389633186238/1.jpg",
@@ -103,7 +64,7 @@
       "hidden": false,
       "listed_at": "2026-11-18T22:14:43.000Z",
       "first_seen": "2026-11-19T14:26:21+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/2332150594232282/1.jpg",
@@ -147,7 +108,7 @@
       "hidden": false,
       "listed_at": "2026-11-18T00:00:04.000Z",
       "first_seen": "2026-11-18T19:56:56+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/29696619303263642/1.jpg",
@@ -181,7 +142,7 @@
       "hidden": false,
       "listed_at": "2026-11-14T04:34:43.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/29604762245854972/1.jpg",
@@ -220,7 +181,7 @@
       "hidden": false,
       "listed_at": "2026-11-12T18:36:38.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1640103387606427/1.jpg",
@@ -259,7 +220,7 @@
       "hidden": false,
       "listed_at": "2026-11-11T20:13:27.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1476828964578681/1.jpg",
@@ -303,7 +264,7 @@
       "hidden": false,
       "listed_at": "2026-11-09T21:09:28.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/2212135199712429/1.jpg",
@@ -337,7 +298,7 @@
       "hidden": false,
       "listed_at": "2026-11-06T00:41:43.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1441593824094441/1.jpg",
@@ -371,7 +332,7 @@
       "hidden": false,
       "listed_at": "2026-11-05T22:49:36.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/993072010507922/1.jpg",
@@ -425,7 +386,7 @@
       "hidden": false,
       "listed_at": "2026-11-04T21:36:42.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1602651931072047/1.jpg",
@@ -474,7 +435,7 @@
       "hidden": false,
       "listed_at": "2026-11-04T04:18:48.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/984841858011538/1.jpg",
@@ -513,7 +474,7 @@
       "hidden": false,
       "listed_at": "2026-11-04T04:12:20.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/2392643971271890/1.jpg",
@@ -547,7 +508,7 @@
       "hidden": false,
       "listed_at": "2026-11-02T19:10:42.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1849095959415056/1.jpg",
@@ -596,7 +557,7 @@
       "hidden": false,
       "listed_at": "2026-10-27T17:35:45.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1503712531593162/1.jpg",
@@ -630,7 +591,7 @@
       "hidden": false,
       "listed_at": "2026-10-23T02:47:38.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1752504019803373/1.jpg",
@@ -664,7 +625,7 @@
       "hidden": false,
       "listed_at": "2026-10-20T20:56:34.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1892103009078665/1.jpg",
@@ -708,7 +669,7 @@
       "hidden": false,
       "listed_at": "2026-10-09T16:53:46.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1093337840118530/1.jpg",
@@ -747,7 +708,7 @@
       "hidden": false,
       "listed_at": "2026-10-09T16:50:51.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1669557128017676/1.jpg",
@@ -786,7 +747,7 @@
       "hidden": false,
       "listed_at": "2026-10-01T21:08:43.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1743035326813240/1.jpg",
@@ -835,7 +796,7 @@
       "hidden": false,
       "listed_at": "2026-09-29T23:37:46.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1814777619671191/1.jpg",
@@ -869,7 +830,7 @@
       "hidden": false,
       "listed_at": "2026-09-29T23:35:42.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1792027652123038/1.jpg",
@@ -903,7 +864,7 @@
       "hidden": false,
       "listed_at": "2026-09-29T23:34:21.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1125124120200319/1.jpg",
@@ -942,7 +903,7 @@
       "hidden": false,
       "listed_at": "2026-09-29T12:44:59.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1636915607777200/1.jpg",
@@ -981,7 +942,7 @@
       "hidden": false,
       "listed_at": "2026-09-21T07:26:44.000Z",
       "first_seen": "2026-11-15T14:54:16+00:00",
-      "last_seen": "2026-11-19T14:26:21+00:00",
+      "last_seen": "2026-11-19T21:29:42+00:00",
       "photos": [
         {
           "file": "photos/1906899391029783/1.jpg",
